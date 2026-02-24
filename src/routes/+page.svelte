@@ -1,461 +1,198 @@
-<script lang="ts">
-  import logo from "$lib/assets/content.png";
-  import { projects, tutorials } from "$lib/index";
-</script>
+<svelte:head>
+	<title>Doxa Labs — Built with intention</title>
+	<meta name="description" content="Doxa Labs is a builder collective. We make tools, share code, and learn in public." />
+</svelte:head>
 
-<!-- Hero Section -->
-<section class="relative min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-offwhite via-offwhite to-beige/30">
-  <div class="relative max-w-5xl mx-auto text-center z-10">
-    <!-- Logo with modern styling -->
-    <div class="mb-12 mx-auto w-fit">
-      <img src={logo} alt="The Artisans" class="size-20" />
-    </div>
-
-    <!-- Main heading with modern typography -->
-    <h1
-      class="font-serif text-6xl md:text-7xl lg:text-8xl text-beige mb-8 font-bold tracking-tight leading-none"
-    >
-      <span class="block text-primary">Building Tools.</span>
-      <span class="block bg-clip-text">Sharing Knowledge.</span>
-    </h1>
-
-    <!-- Description with better spacing -->
-    <div class="max-w-3xl mx-auto mb-12">
-      <p class="font-sans text-xl md:text-2xl text-grayshadow leading-relaxed">
-        Open source, SaaS, and community-driven collaboration for developers
-        worldwide. Crafting solutions that empower builders and creators.
-      </p>
-    </div>
-
-    <!-- Floating accent elements -->
-    <div class="flex justify-center items-center space-x-8 md:space-x-12">
-      <div class="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
-      <div
-        class="w-1 h-12 bg-gradient-to-b from-gold/50 to-transparent rounded-full"
-      ></div>
-      <div
-        class="w-3 h-3 bg-brown/60 rounded-full animate-pulse delay-500"
-      ></div>
-      <div
-        class="w-1 h-12 bg-gradient-to-b from-brown/50 to-transparent rounded-full"
-      ></div>
-      <div
-        class="w-2 h-2 bg-gold/80 rounded-full animate-pulse delay-1000"
-      ></div>
-    </div>
-  </div>
-
-  <!-- Scroll indicator -->
-  <a href="#about" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-  <div class="flex flex-col items-center text-grayshadow/60 hover:text-gold transition-colors">
-  <div
-  class="w-px h-12 bg-gradient-to-b from-transparent to-grayshadow/30 mb-2"
-  ></div>
-  <svg
-  class="w-5 h-5 animate-bounce"
-  fill="none"
-  stroke="currentColor"
-  viewBox="0 0 24 24"
-  >
-  <path
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  stroke-width="2"
-  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-  />
-  </svg>
-  </div>
-  </a>
+<!-- Hero -->
+<section class="px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
+	<div class="max-w-[75rem] mx-auto">
+		<div class="max-w-2xl">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-4">Builder Collective</p>
+			<h1 class="text-4xl sm:text-5xl font-bold text-umber leading-tight tracking-tight">
+				Glory in the details.
+			</h1>
+			<p class="mt-6 text-lg text-neutral-600 max-w-prose leading-relaxed">
+				Doxa Labs is a collective of builders who believe great software is made with care, shared generously, and refined relentlessly. We craft tools, platforms, and open-source projects.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-4">
+				<a
+					href="https://github.com/doxalabs"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center gap-2 bg-clay text-parchment px-5 py-2.5 rounded-md font-medium hover:bg-clay/85 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
+				>
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+					</svg>
+					View on GitHub
+				</a>
+				<a
+					href="#work"
+					class="inline-flex items-center border border-neutral-300 text-neutral-700 px-5 py-2.5 rounded-md font-medium hover:bg-neutral-100 transition-colors duration-150"
+				>
+					See our work
+				</a>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- About Section -->
-<section id="about" class="py-20 px-4 bg-white">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="font-serif text-4xl text-charcoal mb-6 font-bold">
-      Crafting Tools Together
-    </h2>
-    <p
-      class="font-sans text-lg text-grayshadow mb-6 leading-relaxed max-w-3xl mx-auto"
-    >
-      We believe in the power of collaboration and open knowledge. Our mission
-      is to build practical tools, share learning resources, and create a
-      community where developers can grow together.
-    </p>
-    <p
-      class="font-sans text-lg text-grayshadow mb-12 leading-relaxed max-w-3xl mx-auto"
-    >
-      From SaaS products to open-source libraries, from tutorials to
-      collaborative projects – we're here to empower builders with the resources
-      they need to create amazing things.
-    </p>
-    <div class="flex justify-center items-center space-x-12 text-gold">
-      <div class="text-center">
-        <div class="font-serif text-3xl font-bold text-charcoal">50+</div>
-        <div class="font-sans text-sm text-grayshadow">Projects</div>
-      </div>
-      <div class="text-center">
-        <div class="font-serif text-3xl font-bold text-charcoal">1.2K+</div>
-        <div class="font-sans text-sm text-grayshadow">Contributors</div>
-      </div>
-      <div class="text-center">
-        <div class="font-serif text-3xl font-bold text-charcoal">10K+</div>
-        <div class="font-sans text-sm text-grayshadow">Downloads</div>
-      </div>
-    </div>
-  </div>
+<!-- Featured Work -->
+<section id="work" class="px-6 py-20 sm:py-24 bg-neutral-50">
+	<div class="max-w-[75rem] mx-auto">
+		<div class="mb-12">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-2">Featured Work</p>
+			<h2 class="text-3xl font-semibold text-umber tracking-tight">What we're building</h2>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+			<!-- Project Card 1 -->
+			<div class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+				<div class="flex items-center gap-2 mb-4">
+					<div class="w-8 h-8 rounded-md bg-clay/10 flex items-center justify-center">
+						<svg class="w-4 h-4 text-clay" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+						</svg>
+					</div>
+					<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Developer Tool</span>
+				</div>
+				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">CLI Toolkit</h3>
+				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">A collection of fast, composable command-line tools for modern development workflows.</p>
+				<div class="mt-4 flex flex-wrap gap-2">
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Rust</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">CLI</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Open Source</span>
+				</div>
+			</div>
+
+			<!-- Project Card 2 -->
+			<div class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+				<div class="flex items-center gap-2 mb-4">
+					<div class="w-8 h-8 rounded-md bg-sage/15 flex items-center justify-center">
+						<svg class="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+						</svg>
+					</div>
+					<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Platform</span>
+				</div>
+				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">Component Library</h3>
+				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">Accessible, themeable UI components for Svelte with warm design tokens baked in.</p>
+				<div class="mt-4 flex flex-wrap gap-2">
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Svelte</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Tailwind</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">a11y</span>
+				</div>
+			</div>
+
+			<!-- Project Card 3 -->
+			<div class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group">
+				<div class="flex items-center gap-2 mb-4">
+					<div class="w-8 h-8 rounded-md bg-stone-blue/15 flex items-center justify-center">
+						<svg class="w-4 h-4 text-stone-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+						</svg>
+					</div>
+					<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Learning</span>
+				</div>
+				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">Modern Tutorials</h3>
+				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">Classic tutorials rebuilt from scratch with modern frameworks, best practices, and real-world patterns.</p>
+				<div class="mt-4 flex flex-wrap gap-2">
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">SvelteKit</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">TypeScript</span>
+					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Education</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-20 px-4 bg-offwhite">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="font-serif text-4xl text-charcoal mb-6 font-bold">
-        Our Projects
-      </h2>
-      <p
-        class="font-sans text-xl text-grayshadow max-w-3xl mx-auto leading-relaxed"
-      >
-        From developer tools to SaaS platforms, we're building solutions that
-        make development more efficient and enjoyable.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {#each projects as project}
-        <article
-          class="bg-white border border-grayshadow/20 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
-        >
-          <!-- Top accent bar -->
-          <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-brown"
-          ></div>
-
-          <!-- Header with live link and github icon -->
-          <div class="flex items-center justify-between mb-6">
-            <a
-              href="https://{project.title
-                .toLowerCase()
-                .replace(/\s+/g, '-')}.artisans.dev"
-              class="inline-block px-4 py-2 text-xs font-semibold text-gold bg-gold/10 rounded-full border border-gold/20 hover:bg-gold/20 transition-colors duration-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
-            <a
-              href="https://github.com/artisansco/{project.title}"
-              class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center group-hover:bg-gold/20 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg
-                class="w-6 h-6 text-gold"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                />
-              </svg>
-              <span class="sr-only">{project.title}</span>
-            </a>
-          </div>
-
-          <h3
-            class="font-serif text-2xl text-charcoal mb-4 font-bold group-hover:text-brown transition-colors duration-300"
-          >
-            {project.title}
-          </h3>
-
-          <p
-            class="font-sans text-grayshadow mb-6 leading-relaxed text-sm line-clamp-2"
-          >
-            {project.description}
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-8">
-            {#each project.tags as tag}
-              <span
-                class="px-3 py-1 text-xs font-medium text-charcoal bg-beige/50 rounded-full border border-beige/70 hover:bg-gold/10 transition-colors duration-200"
-              >
-                {tag}
-              </span>
-            {/each}
-          </div>
-        </article>
-      {/each}
-    </div>
-
-    <div class="text-center mt-16">
-      <a
-        href="https://github.com/artisansco"
-        class="inline-flex items-center font-sans font-semibold text-gold hover:text-brown transition-colors bg-gold/5 hover:bg-gold/10 px-6 py-3 rounded-xl border border-gold/20"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <svg class="mr-3 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-          />
-        </svg>
-        View all projects on GitHub
-        <svg
-          class="ml-2 w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-          />
-        </svg>
-      </a>
-    </div>
-  </div>
+<!-- What We Do -->
+<section id="about" class="px-6 py-20 sm:py-24">
+	<div class="max-w-[75rem] mx-auto">
+		<div class="max-w-2xl">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-2">About</p>
+			<h2 class="text-3xl font-semibold text-umber tracking-tight">Crafted, not assembled.</h2>
+			<div class="mt-6 space-y-4 text-neutral-600 leading-relaxed">
+				<p>
+					Doxa takes its name from the Greek word for "glory" — the kind found not in noise, but in craft. We're a small collective of builders who care deeply about the software we make.
+				</p>
+				<p>
+					We build developer tools and platforms. We rebuild tutorials in modern frameworks. We create products — free and paid — and share what we learn along the way. Everything we ship is made with intention.
+				</p>
+				<p>
+					Inspired by the artisans of Exodus 31, who were filled with wisdom, understanding, and skill to build something worthy, we believe the best software comes from treating code as craft.
+				</p>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- Learning Hub Section -->
-<section class="py-20 px-4 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="font-serif text-4xl text-charcoal mb-6 font-bold">
-        Rewrites & Reimplementations
-      </h2>
-      <p
-        class="font-sans text-xl text-grayshadow max-w-3xl mx-auto leading-relaxed"
-      >
-        Popular projects and tutorials rebuilt from scratch. Taking inspiration
-        from YouTube, blogs, and courses to create improved versions with modern
-        practices.
-      </p>
-    </div>
+<!-- Values -->
+<section id="values" class="px-6 py-20 sm:py-24 bg-neutral-50">
+	<div class="max-w-[75rem] mx-auto">
+		<div class="mb-12">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-2">Our Values</p>
+			<h2 class="text-3xl font-semibold text-umber tracking-tight">What we believe</h2>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+			<!-- Value 1 -->
+			<div>
+				<div class="w-10 h-10 rounded-lg bg-clay/10 flex items-center justify-center mb-4">
+					<svg class="w-5 h-5 text-clay" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+					</svg>
+				</div>
+				<h3 class="text-umber font-semibold text-lg">Crafted with care</h3>
+				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
+					Every decision is deliberate. We sweat the details because the details are where quality lives. No shortcuts, no half-measures.
+				</p>
+			</div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {#each tutorials as tutorial}
-        <article
-          class="bg-white border border-grayshadow/20 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
-        >
-          <!-- Top accent bar -->
-          <div
-            class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold to-brown"
-          ></div>
+			<!-- Value 2 -->
+			<div>
+				<div class="w-10 h-10 rounded-lg bg-sage/15 flex items-center justify-center mb-4">
+					<svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+					</svg>
+				</div>
+				<h3 class="text-umber font-semibold text-lg">Open by default</h3>
+				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
+					We share our code, our process, and our lessons. Open source isn't a strategy — it's how we believe good software should be made.
+				</p>
+			</div>
 
-          <!-- Header with live link and source icon -->
-          <div class="flex items-center justify-between mb-6">
-            <span
-              class="inline-block px-4 py-2 text-xs font-semibold text-brown bg-brown/10 rounded-full border border-brown/20"
-            >
-              <a
-                href="https://github.com/artisansco"
-                class="text-xs text-grayshadow hover:text-gold transition-colors duration-200 flex items-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Original Source
-                <svg
-                  class="ml-1 w-3 h-3"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            </span>
-            <span class="size-12 flex items-center justify-center">
-              <svg
-                class="w-6 h-6 text-gold"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </span>
-          </div>
-
-          <h3
-            class="font-serif text-2xl text-charcoal mb-4 font-bold group-hover:text-brown transition-colors duration-300"
-          >
-            {tutorial.title}
-          </h3>
-
-          <div class="mb-6">
-            <p class="font-sans text-sm text-grayshadow mb-3">Rebuilt with:</p>
-            <div class="flex flex-wrap gap-2">
-              {#each tutorial.languages as language}
-                <span
-                  class="px-3 py-1 text-xs font-medium text-charcoal bg-beige/50 rounded-full border border-beige/70 hover:bg-gold/10 transition-colors duration-200"
-                >
-                  {language}
-                </span>
-              {/each}
-            </div>
-          </div>
-        </article>
-      {/each}
-    </div>
-
-    <div class="text-center mt-16">
-    <a
-    href="https://github.com/artisansco/website"
-    target="_blank"
-      rel="noopener noreferrer"
-    class="inline-flex items-center font-sans font-semibold text-gold hover:text-brown transition-colors bg-gold/5 hover:bg-gold/10 px-6 py-3 rounded-xl border border-gold/20"
-    >
-    <svg
-    class="mr-3 w-5 h-5"
-    fill="none"
-      stroke="currentColor"
-    viewBox="0 0 24 24"
-    >
-    <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-      stroke-width="2"
-        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-      />
-    </svg>
-    Suggest a project to rewrite
-    <svg
-    class="ml-2 w-4 h-4"
-    fill="none"
-      stroke="currentColor"
-    viewBox="0 0 24 24"
-    >
-    <path
-    stroke-linecap="round"
-    stroke-linejoin="round"
-      stroke-width="2"
-        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-        />
-        </svg>
-      </a>
-    </div>
-    </div>
+			<!-- Value 3 -->
+			<div>
+				<div class="w-10 h-10 rounded-lg bg-stone-blue/15 flex items-center justify-center mb-4">
+					<svg class="w-5 h-5 text-stone-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+					</svg>
+				</div>
+				<h3 class="text-umber font-semibold text-lg">Built to last</h3>
+				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
+					We choose boring technology over hype. We write tests. We document. We build things that work today and still work a year from now.
+				</p>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- Community Section -->
-<section id="community" class="py-20 px-4 bg-gold/5">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="font-serif text-4xl text-charcoal mb-6 font-bold">
-      We're Stronger Together
-    </h2>
-    <p class="font-sans text-xl text-grayshadow mb-12 leading-relaxed">
-      Join our community of builders, creators, and learners. Whether you're
-      contributing code, sharing knowledge, or just getting started – there's a
-      place for you here.
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <div class="text-center">
-        <div
-          class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4"
-        >
-          <svg
-            class="w-8 h-8 text-gold"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-        </div>
-        <h3 class="font-serif text-lg text-charcoal font-bold mb-2">
-          Collaborate
-        </h3>
-        <p class="font-sans text-grayshadow text-sm">
-          Work together on open source projects and share your expertise
-        </p>
-      </div>
-
-      <div class="text-center">
-        <div
-          class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4"
-        >
-          <svg
-            class="w-8 h-8 text-gold"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-            />
-          </svg>
-        </div>
-        <h3 class="font-serif text-lg text-charcoal font-bold mb-2">Learn</h3>
-        <p class="font-sans text-grayshadow text-sm">
-          Access tutorials, guides, and resources created by the community
-        </p>
-      </div>
-
-      <div class="text-center">
-        <div
-          class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4"
-        >
-          <svg
-            class="w-8 h-8 text-gold"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-          </svg>
-        </div>
-        <h3 class="font-serif text-lg text-charcoal font-bold mb-2">Build</h3>
-        <p class="font-sans text-grayshadow text-sm">
-          Create tools and solutions that help developers worldwide
-        </p>
-      </div>
-    </div>
-
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a
-        href="https://github.com/artisansco"
-        class="border-2 border-gold text-gold px-8 py-4 rounded-lg font-semibold hover:text-charcoal hover:bg-gold/10 transition-all duration-200"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub Organization
-      </a>
-    </div>
-  </div>
+<!-- CTA -->
+<section class="px-6 py-20 sm:py-24">
+	<div class="max-w-[75rem] mx-auto text-center">
+		<h2 class="text-2xl sm:text-3xl font-semibold text-umber tracking-tight">The work speaks.</h2>
+		<p class="mt-4 text-neutral-500 max-w-md mx-auto">
+			Follow our journey on GitHub. Star a repo, open an issue, or just say hello.
+		</p>
+		<a
+			href="https://github.com/doxalabs"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="inline-flex items-center gap-2 mt-8 bg-umber text-linen px-6 py-3 rounded-md font-medium hover:bg-neutral-800 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-umber"
+		>
+			<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+				<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+			</svg>
+			Follow Doxa Labs
+		</a>
+	</div>
 </section>

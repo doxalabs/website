@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C59A4A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8A5A2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#grad)" stroke="#2E2A26" stroke-width="2"/>
+  <!-- Hammer and hand icon representing craftsmanship -->
+  <g transform="translate(8,6)">
+    <!-- Hammer handle -->
+    <rect x="6" y="8" width="2" height="12" fill="#2E2A26" rx="1"/>
+    <!-- Hammer head -->
+    <rect x="3" y="6" width="8" height="4" fill="#2E2A26" rx="1"/>
+    <!-- Hand/grip indication -->
+    <ellipse cx="7" cy="16" rx="3" ry="2" fill="#F5F0E6" opacity="0.8"/>
+  </g>
+</svg>
