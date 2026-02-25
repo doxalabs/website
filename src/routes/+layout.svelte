@@ -52,11 +52,11 @@
 				<a
 					href="/projects"
 					onclick={() => (menuOpen = false)}
-					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+					class="flex items-center gap-2 rounded-full border border-neutral-200 bg-parchment px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
 						'/projects'
 					)
-						? 'text-sand'
-						: 'text-parchment hover:text-sand'}"
+						? 'text-clay'
+						: 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250, delay: 100 }}
 					out:fly={{ y: 16, duration: 150 }}
 				>
@@ -66,11 +66,11 @@
 				<a
 					href="/blog"
 					onclick={() => (menuOpen = false)}
-					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+					class="flex items-center gap-2 rounded-full border border-neutral-200 bg-parchment px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
 						'/blog'
 					)
-						? 'text-sand'
-						: 'text-parchment hover:text-sand'}"
+						? 'text-clay'
+						: 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250, delay: 50 }}
 					out:fly={{ y: 16, duration: 150 }}
 				>
@@ -80,11 +80,11 @@
 				<a
 					href="/open-source"
 					onclick={() => (menuOpen = false)}
-					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+					class="flex items-center gap-2 rounded-full border border-neutral-200 bg-parchment px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
 						'/open-source'
 					)
-						? 'text-sand'
-						: 'text-parchment hover:text-sand'}"
+						? 'text-clay'
+						: 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250 }}
 					out:fly={{ y: 16, duration: 150 }}
 				>
@@ -96,7 +96,7 @@
 
 		<!-- FAB toggle -->
 		<button
-			class="flex size-12 items-center justify-center rounded-full border border-neutral-200 bg-umber text-parchment shadow-lg transition-all duration-200 hover:text-sand {menuOpen
+			class="flex size-12 items-center justify-center rounded-full border border-neutral-200 bg-clay-dark text-parchment shadow-lg transition-all duration-200 hover:text-sand {menuOpen
 				? 'rotate-45'
 				: 'rotate-0'}"
 			aria-label="Toggle navigation"
@@ -135,9 +135,7 @@
 				</div>
 			</div>
 			<div class="mt-8 border-t border-neutral-200 pt-8 text-sm text-neutral-400">
-				<p>
-					&copy; {new Date().getFullYear()} Doxa Labs. Crafted, not assembled.
-				</p>
+				<p>&copy; {new Date().getFullYear()} Doxa Labs. Crafted, not assembled.</p>
 			</div>
 		</div>
 	</footer>
