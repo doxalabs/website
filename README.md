@@ -1,42 +1,48 @@
-# sv
+# Doxa Labs Website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The marketing and content site for [Doxa Labs](https://github.com/doxalabs), built with SvelteKit and Tailwind CSS v4.
 
-## Creating a project
+## Tech stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Framework** — SvelteKit (Svelte 5) with static adapter
+- **Styling** — Tailwind CSS v4 with Typography and Forms plugins
+- **Icons** — Iconify (Lucide + MDI sets) via `@iconify/tailwind4`
+- **Content** — MDsveX for Markdown-based blog posts and job listings
+- **Language** — TypeScript
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Pages
 
-To recreate this project with the same configuration:
+| Route | Description |
+| --- | --- |
+| `/` | Landing page |
+| `/projects` | Project showcase |
+| `/blog` | Blog listing |
+| `/blog/[slug]` | Individual blog post |
+| `/open-source` | Open source work |
+| `/careers` | Job listings |
+| `/careers/[slug]` | Individual job posting |
 
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --add mcp="ide:claude-code,opencode,other+setup:local" sveltekit-adapter="adapter:static" tailwindcss="plugins:typography,forms" --install npm ./
-```
+## Navigation
+
+- **Desktop** — sticky top bar with inline links (Projects, Blog, Open Source) and GitHub icon
+- **Mobile** — floating action button (bottom-right) that reveals pill-shaped nav links on tap; auto-hides on scroll-down, reappears on scroll-up
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
 
-To create a production version of your app:
-
 ```sh
 npm run build
+npm run preview   # preview the production build locally
 ```
 
-You can preview the production build with `npm run preview`.
+## Type checking
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+npm run check
+```
