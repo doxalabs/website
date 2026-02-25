@@ -40,9 +40,7 @@
 						</p>
 						<span class="inline-flex items-center gap-1 mt-4 text-sm font-medium text-clay">
 							Read more
-							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-							</svg>
+							<span class="icon-[lucide--chevron-right] size-4"></span>
 						</span>
 					</a>
 				</article>

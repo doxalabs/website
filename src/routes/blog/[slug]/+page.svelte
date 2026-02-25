@@ -15,9 +15,7 @@
 		<div class="max-w-2xl">
 			<!-- Back link -->
 			<a href="/blog" class="inline-flex items-center gap-1 text-sm text-neutral-400 hover:text-umber transition-colors duration-150 mb-8">
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-				</svg>
+				<span class="icon-[lucide--chevron-left] size-4"></span>
 				All posts
 			</a>
 
@@ -56,9 +54,7 @@
 			<!-- Footer -->
 			<div class="mt-16 pt-8 border-t border-neutral-200">
 				<a href="/blog" class="inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-umber transition-colors duration-150">
-					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-					</svg>
+					<span class="icon-[lucide--chevron-left] size-4"></span>
 					Back to all posts
 				</a>
 			</div>

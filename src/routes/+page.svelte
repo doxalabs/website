@@ -1,3 +1,19 @@
+<script lang="ts">
+	import { projects } from '$lib/projects';
+	import type { Project } from '$lib/projects';
+
+	const featured = projects.filter((p) => p.featured);
+
+	const colorClasses: Record<Project['color'], { bg: string; text: string }> = {
+		clay: { bg: 'bg-clay/10', text: 'text-clay' },
+		sage: { bg: 'bg-sage/15', text: 'text-sage' },
+		rust: { bg: 'bg-rust/10', text: 'text-rust' },
+		'stone-blue': { bg: 'bg-stone-blue/15', text: 'text-stone-blue' },
+		neutral: { bg: 'bg-neutral-500/10', text: 'text-neutral-400' },
+		ember: { bg: 'bg-ember/10', text: 'text-ember' }
+	};
+</script>
+
 <svelte:head>
 	<title>Doxa Labs — Built with intention</title>
 	<meta name="description" content="Doxa Labs is a builder collective. We make tools, share code, and learn in public." />
@@ -11,6 +27,9 @@
 			<h1 class="text-4xl sm:text-5xl font-bold text-umber leading-tight tracking-tight">
 				Glory in the details.
 			</h1>
+			<p class="mt-3 text-neutral-400 text-sm tracking-wide">
+				doxa (δόξα) labs — <span class="italic">glory, radiance, splendor</span>
+			</p>
 			<p class="mt-6 text-lg text-neutral-600 max-w-prose leading-relaxed">
 				Doxa Labs is a collective of builders who believe great software is made with care, shared generously, and refined relentlessly. We craft tools, platforms, and open-source projects.
 			</p>
@@ -21,9 +40,7 @@
 					rel="noopener noreferrer"
 					class="inline-flex items-center gap-2 bg-clay text-parchment px-5 py-2.5 rounded-md font-medium hover:bg-clay/85 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
 				>
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-						<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-					</svg>
+					<span class="icon-[mdi--github] size-5"></span>
 					View on GitHub
 				</a>
 				<a
@@ -47,90 +64,77 @@
 			</div>
 			<a href="/projects" class="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-umber transition-colors duration-150">
 				View all
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-				</svg>
+				<span class="icon-[lucide--chevron-right] size-4"></span>
 			</a>
 		</div>
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-			<!-- flags.zig -->
-			<a href="https://github.com/doxalabs/flags.zig" target="_blank" rel="noopener noreferrer" class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block">
-				<div class="flex items-center justify-between mb-4">
-					<div class="flex items-center gap-2">
-						<div class="w-8 h-8 rounded-md bg-clay/10 flex items-center justify-center">
-							<svg class="w-4 h-4 text-clay" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
-							</svg>
+			{#each featured as project (project.title)}
+				{@const colors = colorClasses[project.color]}
+				{#if project.link}
+					<a
+						href={project.link}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block"
+					>
+						<div class="flex items-center justify-between mb-4">
+							<div class="flex items-center gap-2">
+								<div class="w-8 h-8 rounded-md {colors.bg} flex items-center justify-center">
+									<span class="{project.icon} size-4 {colors.text}"></span>
+								</div>
+								<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide"
+									>{project.type}</span
+								>
+							</div>
+							<span
+								class="icon-[lucide--arrow-up-right] size-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150"
+							></span>
 						</div>
-						<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Library</span>
-					</div>
-					<svg class="w-4 h-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-					</svg>
-				</div>
-				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">flags.zig</h3>
-				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">A type-safe command-line argument parser for Zig. Inspired by Rust's clap — zero runtime overhead, comptime parsing, zero dependencies.</p>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Zig</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">CLI</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Parser</span>
-				</div>
-			</a>
-
-			<!-- monimejs -->
-			<a href="https://github.com/doxalabs/monimejs" target="_blank" rel="noopener noreferrer" class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block">
-				<div class="flex items-center justify-between mb-4">
-					<div class="flex items-center gap-2">
-						<div class="w-8 h-8 rounded-md bg-sage/15 flex items-center justify-center">
-							<svg class="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-							</svg>
+						<h3
+							class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150"
+						>
+							{project.title}
+						</h3>
+						<p class="text-neutral-500 mt-2 text-sm leading-relaxed">{project.description}</p>
+						<div class="mt-4 flex flex-wrap gap-2">
+							{#each project.tags as tag (tag)}
+								<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500"
+									>{tag}</span
+								>
+							{/each}
 						</div>
-						<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">SDK</span>
-					</div>
-					<svg class="w-4 h-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-					</svg>
-				</div>
-				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">monimejs</h3>
-				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">Lightweight TypeScript SDK for the Monime payments API. Full type safety, retry logic, idempotency, and 12 resource modules. Published on npm.</p>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">TypeScript</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">npm</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Payments</span>
-				</div>
-			</a>
-
-			<!-- microblog -->
-			<a href="https://github.com/doxalabs/microblog" target="_blank" rel="noopener noreferrer" class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block">
-				<div class="flex items-center justify-between mb-4">
-					<div class="flex items-center gap-2">
-						<div class="w-8 h-8 rounded-md bg-stone-blue/15 flex items-center justify-center">
-							<svg class="w-4 h-4 text-stone-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-							</svg>
+					</a>
+				{:else}
+					<div
+						class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm block"
+					>
+						<div class="flex items-center justify-between mb-4">
+							<div class="flex items-center gap-2">
+								<div class="w-8 h-8 rounded-md {colors.bg} flex items-center justify-center">
+									<span class="{project.icon} size-4 {colors.text}"></span>
+								</div>
+								<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide"
+									>{project.type}</span
+								>
+							</div>
 						</div>
-						<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide">Rewrite</span>
+						<h3 class="text-neutral-700 font-semibold text-lg">{project.title}</h3>
+						<p class="text-neutral-500 mt-2 text-sm leading-relaxed">{project.description}</p>
+						<div class="mt-4 flex flex-wrap gap-2">
+							{#each project.tags as tag (tag)}
+								<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500"
+									>{tag}</span
+								>
+							{/each}
+						</div>
 					</div>
-					<svg class="w-4 h-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-					</svg>
-				</div>
-				<h3 class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150">microblog</h3>
-				<p class="text-neutral-500 mt-2 text-sm leading-relaxed">The Flask Mega-Tutorial reimplemented with a modern stack — SvelteKit frontend, Go API with chi router, and SQLite with sqlx.</p>
-				<div class="mt-4 flex flex-wrap gap-2">
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">Go</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">SvelteKit</span>
-					<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500">SQLite</span>
-				</div>
-			</a>
+				{/if}
+			{/each}
 		</div>
 		<div class="mt-8 sm:hidden">
 			<a href="/projects" class="inline-flex items-center gap-1 text-sm font-medium text-neutral-500 hover:text-umber transition-colors duration-150">
 				View all projects
-				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-				</svg>
+				<span class="icon-[lucide--chevron-right] size-4"></span>
 			</a>
 		</div>
 	</div>
@@ -165,12 +169,9 @@
 			<h2 class="text-3xl font-semibold text-umber tracking-tight">What we believe</h2>
 		</div>
 		<div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-			<!-- Value 1 -->
 			<div>
 				<div class="w-10 h-10 rounded-lg bg-clay/10 flex items-center justify-center mb-4">
-					<svg class="w-5 h-5 text-clay" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
-					</svg>
+					<span class="icon-[lucide--paintbrush] size-5 text-clay"></span>
 				</div>
 				<h3 class="text-umber font-semibold text-lg">Crafted with care</h3>
 				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
@@ -178,12 +179,9 @@
 				</p>
 			</div>
 
-			<!-- Value 2 -->
 			<div>
 				<div class="w-10 h-10 rounded-lg bg-sage/15 flex items-center justify-center mb-4">
-					<svg class="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-					</svg>
+					<span class="icon-[lucide--lock-open] size-5 text-sage"></span>
 				</div>
 				<h3 class="text-umber font-semibold text-lg">Open by default</h3>
 				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
@@ -191,12 +189,9 @@
 				</p>
 			</div>
 
-			<!-- Value 3 -->
 			<div>
 				<div class="w-10 h-10 rounded-lg bg-stone-blue/15 flex items-center justify-center mb-4">
-					<svg class="w-5 h-5 text-stone-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-					</svg>
+					<span class="icon-[lucide--clock] size-5 text-stone-blue"></span>
 				</div>
 				<h3 class="text-umber font-semibold text-lg">Built to last</h3>
 				<p class="text-neutral-500 mt-2 leading-relaxed text-sm">
@@ -220,9 +215,7 @@
 			rel="noopener noreferrer"
 			class="inline-flex items-center gap-2 mt-8 bg-umber text-linen px-6 py-3 rounded-md font-medium hover:bg-neutral-800 transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-umber"
 		>
-			<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-				<path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-			</svg>
+			<span class="icon-[mdi--github] size-5"></span>
 			Follow Doxa Labs
 		</a>
 	</div>

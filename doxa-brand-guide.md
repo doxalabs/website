@@ -436,10 +436,10 @@ For a brand like Doxa Labs, these align with the values of craft, performance, a
 
 | Layer | Recommendation | Why |
 |-------|---------------|-----|
-| Framework | **SvelteKit** or **Astro** | Fast, minimal JS, great DX |
-| Styling | **Tailwind CSS 4** | Utility-first, design tokens map perfectly |
+| Framework | **SvelteKit** | Fast, minimal JS, great DX |
+| Styling | **Tailwind CSS v4** | Utility-first, design tokens map perfectly |
 | Fonts | **Fontsource** or self-hosted | No Google Fonts latency/privacy |
-| Icons | **Lucide** | Clean, consistent, tree-shakeable |
+| Icons | **Lucide** or **MDI** for brands | Clean, consistent, tree-shakeable |
 | Animation | **CSS transitions only** | No JS animation libraries needed |
 | Deployment | **Vercel** or **Cloudflare Pages** | Fast, free tier, global CDN |
 
