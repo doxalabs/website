@@ -12,14 +12,14 @@ The marketing and content site for [Doxa Labs](https://github.com/doxalabs), bui
 
 ## Pages
 
-| Route | Description |
-| --- | --- |
-| `/` | Landing page |
-| `/projects` | Project showcase |
-| `/blog` | Blog listing |
-| `/blog/[slug]` | Individual blog post |
-| `/open-source` | Open source work |
-| `/careers` | Job listings |
+| Route             | Description            |
+| ----------------- | ---------------------- |
+| `/`               | Landing page           |
+| `/projects`       | Project showcase       |
+| `/blog`           | Blog listing           |
+| `/blog/[slug]`    | Individual blog post   |
+| `/open-source`    | Open source work       |
+| `/careers`        | Job listings           |
 | `/careers/[slug]` | Individual job posting |
 
 ## Navigation

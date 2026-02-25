@@ -6,10 +6,9 @@ export interface JobMeta {
 }
 
 function getJobsMeta(): JobMeta[] {
-	const modules = import.meta.glob<{ metadata: Omit<JobMeta, 'slug'> }>(
-		'/src/jobs/*.md',
-		{ eager: true }
-	);
+	const modules = import.meta.glob<{ metadata: Omit<JobMeta, 'slug'> }>('/src/jobs/*.md', {
+		eager: true
+	});
 
 	return Object.entries(modules).map(([path, module]) => {
 		const slug = path.split('/').pop()!.replace('.md', '');

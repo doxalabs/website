@@ -7,10 +7,9 @@ export interface PostMeta {
 }
 
 function getPostsMeta(): PostMeta[] {
-	const modules = import.meta.glob<{ metadata: Omit<PostMeta, 'slug'> }>(
-		'/src/posts/*.md',
-		{ eager: true }
-	);
+	const modules = import.meta.glob<{ metadata: Omit<PostMeta, 'slug'> }>('/src/posts/*.md', {
+		eager: true
+	});
 
 	const posts: PostMeta[] = Object.entries(modules).map(([path, module]) => {
 		const slug = path.split('/').pop()!.replace('.md', '');

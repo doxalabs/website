@@ -1,7 +1,7 @@
 ---
 title: Developer Advocate
 tags: ['Community', 'Content', 'Remote']
-excerpt: "Be the bridge between Doxa Labs and the developer community. Write tutorials, give talks, answer questions, and help people build things with our tools."
+excerpt: 'Be the bridge between Doxa Labs and the developer community. Write tutorials, give talks, answer questions, and help people build things with our tools.'
 ---
 
 ## About the role

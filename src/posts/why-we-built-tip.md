@@ -15,7 +15,7 @@ Every password manager asks you to trust them. Trust their encryption. Trust the
 
 For most people, that trust is reasonable. Established password managers have security audits, bug bounties, and teams dedicated to getting this right. We use them ourselves for team credentials.
 
-But for personal use, we wanted something different: a tool where we could read every line of code between our master password and the encrypted output. Not because we don't trust 1Password — because we wanted to *understand* the system protecting our data.
+But for personal use, we wanted something different: a tool where we could read every line of code between our master password and the encrypted output. Not because we don't trust 1Password — because we wanted to _understand_ the system protecting our data.
 
 ## Why Zig
 

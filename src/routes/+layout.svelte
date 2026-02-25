@@ -1,173 +1,144 @@
 <script lang="ts">
-  import "./layout.css";
-  import favicon from "$lib/assets/favicon.svg";
-  import { page } from "$app/state";
-  import { fly } from "svelte/transition";
+	import './layout.css';
+	import favicon from '$lib/assets/favicon.svg';
+	import { page } from '$app/state';
+	import { fly } from 'svelte/transition';
 
-  let { children } = $props();
-  let menuOpen = $state(false);
+	let { children } = $props();
+	let menuOpen = $state(false);
 </script>
 
 <svelte:head>
-  <link rel="icon" href={favicon} />
-  <title>Doxa Labs</title>
+	<link rel="icon" href={favicon} />
+	<title>Doxa Labs</title>
 </svelte:head>
 
-<div class="min-h-screen flex flex-col bg-parchment text-umber">
-  <!-- Navigation -->
-  <nav
-    class="bg-parchment/80 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50"
-  >
-    <div
-      class="max-w-[75rem] mx-auto px-6 h-16 flex items-center justify-between"
-    >
-      <a href="/" class="text-umber font-semibold text-lg tracking-tight"
-        >doxa labs</a
-      >
-      <div class="flex items-center gap-8">
-        <div class="hidden sm:flex gap-8 text-neutral-600 text-sm font-medium">
-          <a
-            href="/projects"
-            class="hover:text-umber transition-colors duration-150">Projects</a
-          >
-          <a
-            href="/blog"
-            class="hover:text-umber transition-colors duration-150">Blog</a
-          >
-          <a
-            href="/open-source"
-            class="hover:text-umber transition-colors duration-150"
-            >Open Source</a
-          >
-        </div>
-        <a
-          href="https://github.com/doxalabs"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-500 hover:text-umber transition-colors duration-150"
-          aria-label="GitHub"
-        >
-          <span class="icon-[mdi--github] size-5"></span>
-        </a>
-      </div>
-    </div>
-  </nav>
+<div class="flex min-h-screen flex-col bg-parchment text-umber">
+	<!-- Navigation -->
+	<nav class="sticky top-0 z-50 border-b border-neutral-200 bg-parchment/80 backdrop-blur-sm">
+		<div class="mx-auto flex h-16 max-w-[75rem] items-center justify-between px-6">
+			<a href="/" class="text-lg font-semibold tracking-tight text-umber">doxa labs</a>
+			<div class="flex items-center gap-8">
+				<div class="hidden gap-8 text-sm font-medium text-neutral-600 sm:flex">
+					<a href="/projects" class="transition-colors duration-150 hover:text-umber">Projects</a>
+					<a href="/blog" class="transition-colors duration-150 hover:text-umber">Blog</a>
+					<a href="/open-source" class="transition-colors duration-150 hover:text-umber"
+						>Open Source</a
+					>
+				</div>
+				<a
+					href="https://github.com/doxalabs"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-neutral-500 transition-colors duration-150 hover:text-umber"
+					aria-label="GitHub"
+				>
+					<span class="icon-[mdi--github] size-5"></span>
+				</a>
+			</div>
+		</div>
+	</nav>
 
-  <!-- Mobile floating nav button -->
-  <div
-    class="fixed bottom-6 right-6 z-50 sm:hidden flex flex-col items-end gap-3"
-  >
-    <!-- Slide-up links -->
-    {#if menuOpen}
-      <button
-        class="fixed inset-0 z-[-1]"
-        aria-label="Close menu"
-        onclick={() => (menuOpen = false)}
-      ></button>
-      <nav class="flex flex-col gap-1 items-end" aria-label="Mobile navigation">
-        <a
-          href="/projects"
-          onclick={() => (menuOpen = false)}
-          class="flex items-center gap-2 rounded-full px-4 py-2 bg-umber shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith(
-            '/projects',
-          )
-            ? 'text-sand'
-            : 'text-parchment hover:text-sand'}"
-          in:fly={{ y: 16, duration: 250, delay: 100 }}
-          out:fly={{ y: 16, duration: 150 }}
-        >
-          <span class="icon-[lucide--folder] size-4"></span>
-          Projects
-        </a>
-        <a
-          href="/blog"
-          onclick={() => (menuOpen = false)}
-          class="flex items-center gap-2 rounded-full px-4 py-2 bg-umber shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith(
-            '/blog',
-          )
-            ? 'text-sand'
-            : 'text-parchment hover:text-sand'}"
-          in:fly={{ y: 16, duration: 250, delay: 50 }}
-          out:fly={{ y: 16, duration: 150 }}
-        >
-          <span class="icon-[lucide--pen-line] size-4"></span>
-          Blog
-        </a>
-        <a
-          href="/open-source"
-          onclick={() => (menuOpen = false)}
-          class="flex items-center gap-2 rounded-full px-4 py-2 bg-umber shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith(
-            '/open-source',
-          )
-            ? 'text-sand'
-            : 'text-parchment hover:text-sand'}"
-          in:fly={{ y: 16, duration: 250 }}
-          out:fly={{ y: 16, duration: 150 }}
-        >
-          <span class="icon-[lucide--code] size-4"></span>
-          OSS
-        </a>
-      </nav>
-    {/if}
+	<!-- Mobile floating nav button -->
+	<div class="fixed right-6 bottom-6 z-50 flex flex-col items-end gap-3 sm:hidden">
+		<!-- Slide-up links -->
+		{#if menuOpen}
+			<button
+				class="fixed inset-0 z-[-1]"
+				aria-label="Close menu"
+				onclick={() => (menuOpen = false)}
+			></button>
+			<nav class="flex flex-col items-end gap-1" aria-label="Mobile navigation">
+				<a
+					href="/projects"
+					onclick={() => (menuOpen = false)}
+					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+						'/projects'
+					)
+						? 'text-sand'
+						: 'text-parchment hover:text-sand'}"
+					in:fly={{ y: 16, duration: 250, delay: 100 }}
+					out:fly={{ y: 16, duration: 150 }}
+				>
+					<span class="icon-[lucide--folder] size-4"></span>
+					Projects
+				</a>
+				<a
+					href="/blog"
+					onclick={() => (menuOpen = false)}
+					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+						'/blog'
+					)
+						? 'text-sand'
+						: 'text-parchment hover:text-sand'}"
+					in:fly={{ y: 16, duration: 250, delay: 50 }}
+					out:fly={{ y: 16, duration: 150 }}
+				>
+					<span class="icon-[lucide--pen-line] size-4"></span>
+					Blog
+				</a>
+				<a
+					href="/open-source"
+					onclick={() => (menuOpen = false)}
+					class="flex items-center gap-2 rounded-full bg-umber px-4 py-2 text-sm font-medium shadow-md transition-colors duration-150 {page.url.pathname.startsWith(
+						'/open-source'
+					)
+						? 'text-sand'
+						: 'text-parchment hover:text-sand'}"
+					in:fly={{ y: 16, duration: 250 }}
+					out:fly={{ y: 16, duration: 150 }}
+				>
+					<span class="icon-[lucide--code] size-4"></span>
+					OSS
+				</a>
+			</nav>
+		{/if}
 
-    <!-- FAB toggle -->
-    <button
-      class="size-12 rounded-full bg-umber border border-neutral-200 shadow-lg flex items-center justify-center text-parchment hover:text-sand transition-all duration-200 {menuOpen
-        ? 'rotate-45'
-        : 'rotate-0'}"
-      aria-label="Toggle navigation"
-      onclick={() => (menuOpen = !menuOpen)}
-    >
-      <span class="icon-[lucide--plus] size-5"></span>
-    </button>
-  </div>
+		<!-- FAB toggle -->
+		<button
+			class="flex size-12 items-center justify-center rounded-full border border-neutral-200 bg-umber text-parchment shadow-lg transition-all duration-200 hover:text-sand {menuOpen
+				? 'rotate-45'
+				: 'rotate-0'}"
+			aria-label="Toggle navigation"
+			onclick={() => (menuOpen = !menuOpen)}
+		>
+			<span class="icon-[lucide--plus] size-5"></span>
+		</button>
+	</div>
 
-  <!-- Main content -->
-  <main class="flex-1">
-    {@render children()}
-  </main>
+	<!-- Main content -->
+	<main class="flex-1">
+		{@render children()}
+	</main>
 
-  <!-- Footer -->
-  <footer class="border-t border-neutral-200 bg-neutral-50">
-    <div class="max-w-[75rem] mx-auto px-6 py-12">
-      <div class="flex flex-col sm:flex-row justify-between items-start gap-8">
-        <div>
-          <p class="text-umber font-semibold tracking-tight">doxa labs</p>
-          <p class="text-neutral-500 text-sm mt-1">Built with intention.</p>
-        </div>
-        <div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
-          <a
-            href="/projects"
-            class="hover:text-umber transition-colors duration-150">Projects</a
-          >
-          <a
-            href="/blog"
-            class="hover:text-umber transition-colors duration-150">Blog</a
-          >
-          <a
-            href="/open-source"
-            class="hover:text-umber transition-colors duration-150"
-            >Open Source</a
-          >
-          <a
-            href="/careers"
-            class="hover:text-umber transition-colors duration-150">Careers</a
-          >
-          <a
-            href="https://github.com/doxalabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-umber transition-colors duration-150">GitHub</a
-          >
-        </div>
-      </div>
-      <div
-        class="mt-8 pt-8 border-t border-neutral-200 text-sm text-neutral-400"
-      >
-        <p>
-          &copy; {new Date().getFullYear()} Doxa Labs. Crafted, not assembled.
-        </p>
-      </div>
-    </div>
-  </footer>
+	<!-- Footer -->
+	<footer class="border-t border-neutral-200 bg-neutral-50">
+		<div class="mx-auto max-w-[75rem] px-6 py-12">
+			<div class="flex flex-col items-start justify-between gap-8 sm:flex-row">
+				<div>
+					<p class="font-semibold tracking-tight text-umber">doxa labs</p>
+					<p class="mt-1 text-sm text-neutral-500">Built with intention.</p>
+				</div>
+				<div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
+					<a href="/projects" class="transition-colors duration-150 hover:text-umber">Projects</a>
+					<a href="/blog" class="transition-colors duration-150 hover:text-umber">Blog</a>
+					<a href="/open-source" class="transition-colors duration-150 hover:text-umber"
+						>Open Source</a
+					>
+					<a href="/careers" class="transition-colors duration-150 hover:text-umber">Careers</a>
+					<a
+						href="https://github.com/doxalabs"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="transition-colors duration-150 hover:text-umber">GitHub</a
+					>
+				</div>
+			</div>
+			<div class="mt-8 border-t border-neutral-200 pt-8 text-sm text-neutral-400">
+				<p>
+					&copy; {new Date().getFullYear()} Doxa Labs. Crafted, not assembled.
+				</p>
+			</div>
+		</div>
+	</footer>
 </div>

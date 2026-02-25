@@ -1,7 +1,7 @@
 ---
 title: Why We Chose Zig for Our CLI Tools
 date: '2026-02-20'
-excerpt: "We needed a language that gave us control without ceremony. Zig turned out to be exactly that — and building flags.zig proved it."
+excerpt: 'We needed a language that gave us control without ceremony. Zig turned out to be exactly that — and building flags.zig proved it.'
 readingTime: 6 min read
 ---
 
@@ -29,7 +29,7 @@ const Args = struct {
 };
 ```
 
-The parser reads this struct *at compile time*, generates the parsing code, and gives you back a typed result. No reflection. No code generation step. No macros. Just the type system doing what type systems should do.
+The parser reads this struct _at compile time_, generates the parsing code, and gives you back a typed result. No reflection. No code generation step. No macros. Just the type system doing what type systems should do.
 
 If you add a field to the struct and forget to handle it, the compiler tells you. If you pass the wrong type, the compiler tells you. The entire parser is about 800 lines of Zig with zero external dependencies.
 

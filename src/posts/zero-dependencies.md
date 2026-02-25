@@ -1,7 +1,7 @@
 ---
 title: The Case for Zero Dependencies
 date: '2025-12-18'
-excerpt: "Every dependency is a decision someone else made on your behalf. We think you should make fewer of those decisions unconsciously."
+excerpt: 'Every dependency is a decision someone else made on your behalf. We think you should make fewer of those decisions unconsciously.'
 readingTime: 4 min read
 ---
 
@@ -35,7 +35,7 @@ Zero dependencies isn't always the right call. We'd add one when:
 2. **The code would be substantial.** If implementing it yourself means 500+ lines of tricky logic, a dependency that's been battle-tested by thousands of users is the better choice.
 3. **The library is stable and well-maintained.** A dependency with a clear maintainer, regular releases, and a changelog you can follow is worth the trade-off.
 
-The key word is *deliberate*. Every dependency should be a conscious choice with a clear reason, not a habit.
+The key word is _deliberate_. Every dependency should be a conscious choice with a clear reason, not a habit.
 
 ## The monimejs result
 
@@ -45,4 +45,4 @@ The constraint forced us to write better code. Without axios, we had to understa
 
 ## Try the constraint
 
-Next time you reach for `npm install`, ask: *can I do this with what's already here?* You'll be surprised how often the answer is yes. And when it's no, you'll have a much clearer understanding of why you actually need that package.
+Next time you reach for `npm install`, ask: _can I do this with what's already here?_ You'll be surprised how often the answer is yes. And when it's no, you'll have a much clearer understanding of why you actually need that package.
