@@ -1,0 +1,31 @@
+---
+title: Systems Engineer
+tags: ['Zig', 'Systems', 'Remote']
+excerpt: "Work on our Zig toolchain — flags.zig, tip, and whatever comes next. You'll write low-level code that prioritizes correctness and simplicity over abstraction."
+---
+
+## About the role
+
+You'll work on our Zig-based tools — [flags.zig](https://github.com/doxalabs/flags.zig), [tip](https://github.com/doxalabs/tip), and new projects as they come up. The work is low-level: argument parsing, memory management, cryptographic primitives, and CLI interfaces. You'll write code where correctness matters more than speed of delivery.
+
+## What you'll do
+
+- Extend and maintain flags.zig — comptime argument parsing, subcommands, error reporting
+- Build new CLI tools in Zig for internal and public use
+- Work on tip's cryptographic layer — key derivation, memory zeroing, secure defaults
+- Write tests that verify behavior at the byte level
+- Review PRs from contributors with an eye for correctness and clarity
+
+## What we're looking for
+
+- Experience with systems programming — Zig, Rust, C, or C++
+- Comfort with manual memory management and understanding of when it matters
+- Familiarity with comptime/metaprogramming concepts
+- Strong opinions about error handling, loosely held
+- You've read code more than you've written it, and you think that's a feature
+
+## Nice to have
+
+- Contributions to open-source systems projects
+- Experience with applied cryptography (not just theory)
+- Familiarity with Zig's standard library and build system

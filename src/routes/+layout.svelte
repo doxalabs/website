@@ -1,55 +1,63 @@
 <script lang="ts">
-  import "../app.css";
-  import favicon from "$lib/assets/favicon.svg";
+	import './layout.css';
+	import favicon from '$lib/assets/favicon.svg';
 
-  let { children } = $props();
+	let { children } = $props();
 </script>
 
 <svelte:head>
-<link rel="icon" href={favicon} />
-<title>The Artisans - Building Tools, Sharing Knowledge</title>
-<meta
-name="description"
-content="Open source, SaaS, and community-driven collaboration for developers worldwide. Crafting solutions that empower builders and creators."
-/>
-  <meta name="keywords" content="open source, SaaS, developers, community, tools, collaboration, knowledge sharing" />
-  <meta name="author" content="The Artisans" />
-  <meta property="og:title" content="The Artisans - Building Tools, Sharing Knowledge" />
-  <meta property="og:description" content="Open source, SaaS, and community-driven collaboration for developers worldwide." />
-  <meta property="og:image" content="{favicon}" />
-  <meta property="og:url" content="https://artisans.dev" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Artisans - Building Tools, Sharing Knowledge" />
-  <meta name="twitter:description" content="Open source, SaaS, and community-driven collaboration for developers worldwide." />
-  <meta name="twitter:image" content="{favicon}" />
-  <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "The Artisans",
-      "url": "https://artisans.dev",
-      "logo": "{favicon}",
-      "description": "Open source, SaaS, and community-driven collaboration for developers worldwide.",
-      "sameAs": [
-        "https://github.com/artisansco"
-      ]
-    }}
-  </script>
+	<link rel="icon" href={favicon} />
+	<title>Doxa Labs</title>
 </svelte:head>
 
-<main class="min-h-screen bg-offwhite">
-  {@render children?.()}
-</main>
+<div class="min-h-screen flex flex-col bg-parchment text-umber">
+	<!-- Navigation -->
+	<nav class="bg-parchment/80 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50">
+		<div class="max-w-[75rem] mx-auto px-6 h-16 flex items-center justify-between">
+			<a href="/" class="text-umber font-semibold text-lg tracking-tight">doxa labs</a>
+			<div class="flex items-center gap-8">
+				<div class="hidden sm:flex gap-8 text-neutral-600 text-sm font-medium">
+					<a href="/projects" class="hover:text-umber transition-colors duration-150">Projects</a>
+					<a href="/blog" class="hover:text-umber transition-colors duration-150">Blog</a>
+					<a href="/open-source" class="hover:text-umber transition-colors duration-150">Open Source</a>
+				</div>
+				<a
+					href="https://github.com/doxalabs"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-neutral-500 hover:text-umber transition-colors duration-150"
+					aria-label="GitHub"
+				>
+				<span class="icon-[mdi--github] size-5"></span>
+				</a>
+			</div>
+		</div>
+	</nav>
 
-<!-- Minimal Footer -->
-<footer class="bg-charcoal text-offwhite py-8">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <div class="flex justify-center items-center mb-4">
-      <span class="font-serif text-xl font-bold">The Artisans</span>
-  </div>
-<p class="font-sans text-sm text-offwhite/80">
-  &copy; {new Date().getFullYear()} The Artisans. All rights reserved.
-</p>
+	<!-- Main content -->
+	<main class="flex-1">
+		{@render children()}
+	</main>
+
+	<!-- Footer -->
+	<footer class="border-t border-neutral-200 bg-neutral-50">
+		<div class="max-w-[75rem] mx-auto px-6 py-12">
+			<div class="flex flex-col sm:flex-row justify-between items-start gap-8">
+				<div>
+					<p class="text-umber font-semibold tracking-tight">doxa labs</p>
+					<p class="text-neutral-500 text-sm mt-1">Built with intention.</p>
+				</div>
+				<div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
+					<a href="/projects" class="hover:text-umber transition-colors duration-150">Projects</a>
+					<a href="/blog" class="hover:text-umber transition-colors duration-150">Blog</a>
+					<a href="/open-source" class="hover:text-umber transition-colors duration-150">Open Source</a>
+					<a href="/careers" class="hover:text-umber transition-colors duration-150">Careers</a>
+					<a href="https://github.com/doxalabs" target="_blank" rel="noopener noreferrer" class="hover:text-umber transition-colors duration-150">GitHub</a>
+				</div>
+			</div>
+			<div class="mt-8 pt-8 border-t border-neutral-200 text-sm text-neutral-400">
+				<p>&copy; {new Date().getFullYear()} Doxa Labs. Crafted, not assembled.</p>
+			</div>
+		</div>
+	</footer>
 </div>
-</footer>
