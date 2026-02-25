@@ -1,0 +1,31 @@
+---
+title: Developer Advocate
+tags: ['Community', 'Content', 'Remote']
+excerpt: "Be the bridge between Doxa Labs and the developer community. Write tutorials, give talks, answer questions, and help people build things with our tools."
+---
+
+## About the role
+
+You'll help developers discover and use Doxa Labs tools. That means writing tutorials, creating example projects, answering questions on GitHub, and representing us at meetups or conferences. You're not selling anything — you're helping people solve problems with tools we've built.
+
+## What you'll do
+
+- Create tutorials, example projects, and code samples for our open-source tools
+- Write and publish technical content (blog posts, threads, short-form guides)
+- Engage with the developer community on GitHub — triage issues, answer questions, welcome new contributors
+- Identify gaps in our documentation and developer experience, then fix them
+- Attend or speak at developer meetups and conferences
+
+## What we're looking for
+
+- You enjoy explaining things and helping people get unstuck
+- Strong writing and communication skills — you can adapt your tone from a tweet to a long-form blog post
+- Enough technical depth to build real projects with our tools (not just demo apps)
+- Experience creating developer content — blog posts, videos, talks, or open-source contributions
+- You're active in at least one developer community and people know your name
+
+## Nice to have
+
+- An existing audience (blog, YouTube, Twitter/X) — size doesn't matter, consistency does
+- Experience with Zig, TypeScript, Go, or SvelteKit
+- Public speaking experience

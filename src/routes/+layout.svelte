@@ -17,9 +17,9 @@
 			<a href="/" class="text-umber font-semibold text-lg tracking-tight">doxa labs</a>
 			<div class="flex items-center gap-8">
 				<div class="hidden sm:flex gap-8 text-neutral-600 text-sm font-medium">
-					<a href="#work" class="hover:text-umber transition-colors duration-150">Work</a>
-					<a href="#about" class="hover:text-umber transition-colors duration-150">About</a>
-					<a href="#values" class="hover:text-umber transition-colors duration-150">Values</a>
+					<a href="/projects" class="hover:text-umber transition-colors duration-150">Projects</a>
+					<a href="/blog" class="hover:text-umber transition-colors duration-150">Blog</a>
+					<a href="/open-source" class="hover:text-umber transition-colors duration-150">Open Source</a>
 				</div>
 				<a
 					href="https://github.com/doxalabs"
@@ -49,10 +49,12 @@
 					<p class="text-umber font-semibold tracking-tight">doxa labs</p>
 					<p class="text-neutral-500 text-sm mt-1">Built with intention.</p>
 				</div>
-				<div class="flex gap-8 text-sm text-neutral-500">
+				<div class="flex flex-wrap gap-x-8 gap-y-2 text-sm text-neutral-500">
+					<a href="/projects" class="hover:text-umber transition-colors duration-150">Projects</a>
+					<a href="/blog" class="hover:text-umber transition-colors duration-150">Blog</a>
+					<a href="/open-source" class="hover:text-umber transition-colors duration-150">Open Source</a>
+					<a href="/careers" class="hover:text-umber transition-colors duration-150">Careers</a>
 					<a href="https://github.com/doxalabs" target="_blank" rel="noopener noreferrer" class="hover:text-umber transition-colors duration-150">GitHub</a>
-					<a href="#about" class="hover:text-umber transition-colors duration-150">About</a>
-					<a href="#work" class="hover:text-umber transition-colors duration-150">Work</a>
 				</div>
 			</div>
 			<div class="mt-8 pt-8 border-t border-neutral-200 text-sm text-neutral-400">
