@@ -28,8 +28,8 @@ readingTime: 'X min read'
 | ------------- | ------ | ------------------------------------------------------------ |
 | `title`       | string | The full post title. Displayed on the post page and listing. |
 | `date`        | string | ISO 8601 date (`2026-03-15`). Controls sort order.           |
-| `excerpt`     | string | 1-2 sentences. Shown on `/blog` and in the `<meta>` tag.     |
-| `readingTime` | string | Estimated read time, e.g. `'5 min read'`.                    |
+| `excerpt`     | string | 1-2 sentences. Shown on `/blog` and in the `<meta>` tag.    |
+| `readingTime` | string | Estimated read time, e.g. `'5 min read'`.                   |
 
 ## File naming
 
@@ -41,7 +41,6 @@ src/posts/building-in-public.md  →  /blog/building-in-public
 ```
 
 Rules:
-
 - Lowercase only
 - Hyphens between words (no underscores or spaces)
 - Keep it short but descriptive

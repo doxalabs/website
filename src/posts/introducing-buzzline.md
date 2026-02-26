@@ -2,7 +2,7 @@
 title: 'Introducing Buzzline'
 date: '2026-03-25'
 excerpt: 'Buzzline is a developer-friendly SMS gateway built for Sierra Leone. Reliable delivery, transparent pricing, and an API that makes sense.'
-readingTime: '6 min read'
+tags: ['Product', 'Go']
 ---
 
 We're building Buzzline — an SMS gateway and messaging API designed specifically for Sierra Leone's market.
@@ -34,7 +34,6 @@ The system is built around a few principles:
 Buzzline is built with Go. We chose it for the same reasons we've discussed in [choosing boring technology](/blog/choosing-boring-technology): it's reliable, it's fast, and the concurrency model maps naturally to a message queue system.
 
 The stack:
-
 - **Go** with Chi router for the HTTP API
 - **PostgreSQL** for message persistence, user accounts, and billing
 - **sqlc** for type-safe database queries

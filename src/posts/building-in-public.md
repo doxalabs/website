@@ -2,7 +2,7 @@
 title: Building in Public
 date: '2026-01-15'
 excerpt: "We open-source everything from the first commit. Not because it's trendy — because public code stays honest."
-readingTime: 4 min read
+tags: ['Philosophy', 'Open Source']
 ---
 
 Every Doxa Labs project starts as a public repository. Not after it's polished. Not after the README is perfect. The first commit is public. The ugly scaffolding is public. The commit messages that say "fix the thing" are public.
@@ -19,7 +19,7 @@ Public code doesn't rot the same way. When your code is visible, you write it di
 
 The biggest barrier to building in public isn't technical. It's ego. Nobody wants to push code that's half-finished, or a commit that breaks the build, or a design decision they'll reverse in two weeks.
 
-We got over it by accepting a simple truth: _every codebase looks like that_. The difference is whether you pretend it doesn't. Our commit history is full of false starts and reversed decisions. That's not failure — that's the actual process of building software.
+We got over it by accepting a simple truth: *every codebase looks like that*. The difference is whether you pretend it doesn't. Our commit history is full of false starts and reversed decisions. That's not failure — that's the actual process of building software.
 
 ## What we've gained
 

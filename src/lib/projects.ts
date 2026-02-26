@@ -2,7 +2,11 @@ export interface Project {
 	title: string;
 	description: string;
 	tags: string[];
-	category: 'Tools & Libraries' | 'Products' | 'Rewrites & Reimplementations' | 'Older Work';
+	category:
+		| 'Tools & Libraries'
+		| 'Products'
+		| 'Rewrites & Reimplementations'
+		| 'Older Work';
 	type: 'Library' | 'SDK' | 'Tool' | 'Rewrite' | 'Platform' | 'App';
 	link?: string;
 	icon: string;
@@ -39,7 +43,7 @@ export const projects: Project[] = [
 	{
 		title: 'InnKeeper',
 		description:
-			"A lodging and booking platform for Sierra Leone's tourism market. Guests discover and book rooms, hotel operators manage properties, staff, and analytics. Built with SvelteKit and Drizzle.",
+			'A lodging and booking platform for Sierra Leone\'s tourism market. Guests discover and book rooms, hotel operators manage properties, staff, and analytics. Built with SvelteKit and Drizzle.',
 		tags: ['SvelteKit', 'Hospitality', 'SaaS'],
 		category: 'Products',
 		type: 'Platform',
@@ -50,7 +54,7 @@ export const projects: Project[] = [
 	{
 		title: 'Orbis',
 		description:
-			"A unified patient records system for Sierra Leone's healthcare sector. Multi-facility record sharing, appointment scheduling, SOAP notes, and audit trails. Built with Go and PostgreSQL.",
+			'A unified patient records system for Sierra Leone\'s healthcare sector. Multi-facility record sharing, appointment scheduling, SOAP notes, and audit trails. Built with Go and PostgreSQL.',
 		tags: ['Go', 'Healthcare', 'SaaS'],
 		category: 'Products',
 		type: 'Platform',
@@ -123,6 +127,6 @@ export const projects: Project[] = [
 	}
 ];
 
-export function groupByCategory(items: Project[]): [string, Project[]][] {
+export function group_by_category(items: Project[]): [string, Project[]][] {
 	return Object.entries(Object.groupBy(items, (p) => p.category)) as [string, Project[]][];
 }

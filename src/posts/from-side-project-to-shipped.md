@@ -2,7 +2,7 @@
 title: 'From side project to shipped'
 date: '2026-03-05'
 excerpt: 'Most side projects die in a drawer. Here is what we have learned about actually finishing things and getting them out the door.'
-readingTime: '5 min read'
+tags: ['Philosophy', 'Product']
 ---
 
 Every developer has a graveyard of half-finished projects. Folders with names like `todo-app-v3`, `my-cool-idea`, `untitled-2`. We're no different. The difference is that we've started shipping more of them — and the shift wasn't about working harder.

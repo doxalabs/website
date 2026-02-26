@@ -2,7 +2,7 @@
 title: Rewriting the Flask Mega-Tutorial in Go and SvelteKit
 date: '2026-02-10'
 excerpt: "Miguel Grinberg's Flask Mega-Tutorial is one of the best learning resources in web development. We rebuilt it from scratch with a modern stack to see what changed — and what didn't."
-readingTime: 8 min read
+tags: ['Engineering', 'Go', 'SvelteKit']
 ---
 
 Miguel Grinberg's [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) is a masterclass in teaching web development. It walks you through building a complete blog application — authentication, database migrations, email, deployment — all in Flask. It's been helping developers learn for over a decade.
@@ -13,7 +13,7 @@ We rebuilt it. Not because the original is bad (it's not — it's excellent), bu
 
 More than we expected. The fundamental architecture — routes, templates, models, forms, authentication — maps almost 1:1. Flask's route decorators become chi's route handlers. Jinja2 templates become Svelte components. SQLAlchemy models become sqlx structs with SQL queries.
 
-The tutorial's _teaching structure_ also held up perfectly. Miguel's approach of building incrementally — start with "hello world", add users, add posts, add followers — works regardless of the tech stack. Good pedagogy transcends frameworks.
+The tutorial's *teaching structure* also held up perfectly. Miguel's approach of building incrementally — start with "hello world", add users, add posts, add followers — works regardless of the tech stack. Good pedagogy transcends frameworks.
 
 ## What changed
 
@@ -33,6 +33,6 @@ We also should have started with SvelteKit's form actions instead of building a 
 
 ## Was it worth it?
 
-Yes, but not for the reason we expected. The value wasn't in the final product — it's a blog app, there are thousands of those. The value was in the _comparison_. Seeing the same concepts expressed in two different stacks made us better at both. We now reach for Flask when we want to prototype fast, and for Go + SvelteKit when we want type safety and performance.
+Yes, but not for the reason we expected. The value wasn't in the final product — it's a blog app, there are thousands of those. The value was in the *comparison*. Seeing the same concepts expressed in two different stacks made us better at both. We now reach for Flask when we want to prototype fast, and for Go + SvelteKit when we want type safety and performance.
 
 If you're learning web development, start with the original Flask Mega-Tutorial. It's still one of the best resources out there. Then look at our rewrite to see how those same concepts look in a modern stack.

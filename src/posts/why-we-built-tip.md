@@ -2,7 +2,7 @@
 title: Why We Built Our Own Password Manager
 date: '2026-01-05'
 excerpt: "We didn't build tip because existing password managers are bad. We built it because we wanted to understand every line between our passwords and the outside world."
-readingTime: 5 min read
+tags: ['Engineering', 'Zig']
 ---
 
 This is going to sound reckless: we built our own password manager. In Zig. From scratch.
@@ -15,7 +15,7 @@ Every password manager asks you to trust them. Trust their encryption. Trust the
 
 For most people, that trust is reasonable. Established password managers have security audits, bug bounties, and teams dedicated to getting this right. We use them ourselves for team credentials.
 
-But for personal use, we wanted something different: a tool where we could read every line of code between our master password and the encrypted output. Not because we don't trust 1Password — because we wanted to _understand_ the system protecting our data.
+But for personal use, we wanted something different: a tool where we could read every line of code between our master password and the encrypted output. Not because we don't trust 1Password — because we wanted to *understand* the system protecting our data.
 
 ## Why Zig
 

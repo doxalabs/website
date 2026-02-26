@@ -2,7 +2,7 @@
 title: 'The art of the README'
 date: '2026-03-18'
 excerpt: 'A README is the front door to your project. We have a simple framework for writing ones that actually help people.'
-readingTime: '4 min read'
+tags: ['Open Source', 'Engineering']
 ---
 
 You can tell a lot about a project by its README. Not the code quality — the care. A good README says: we respect your time, and we've thought about what you need to know. A bad one says: figure it out yourself.

@@ -5,10 +5,11 @@ export interface JobMeta {
 	excerpt: string;
 }
 
-function getJobsMeta(): JobMeta[] {
-	const modules = import.meta.glob<{ metadata: Omit<JobMeta, 'slug'> }>('/src/jobs/*.md', {
-		eager: true
-	});
+function get_jobs_meta(): JobMeta[] {
+	const modules = import.meta.glob<{ metadata: Omit<JobMeta, 'slug'> }>(
+		'/src/jobs/*.md',
+		{ eager: true }
+	);
 
 	return Object.entries(modules).map(([path, module]) => {
 		const slug = path.split('/').pop()!.replace('.md', '');
@@ -16,4 +17,4 @@ function getJobsMeta(): JobMeta[] {
 	});
 }
 
-export const jobs = getJobsMeta();
+export const jobs = get_jobs_meta();

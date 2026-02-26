@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { projects, groupByCategory } from '$lib/projects';
+	import { projects, group_by_category } from '$lib/projects';
 	import type { Project } from '$lib/projects';
 
-	const grouped = groupByCategory(projects);
+	const grouped = group_by_category(projects);
 
-	const colorClasses: Record<Project['color'], { bg: string; text: string }> = {
+	const color_classes: Record<Project['color'], { bg: string; text: string }> = {
 		clay: { bg: 'bg-clay/10', text: 'text-clay' },
 		sage: { bg: 'bg-sage/15', text: 'text-sage' },
 		rust: { bg: 'bg-rust/10', text: 'text-rust' },
@@ -23,15 +23,14 @@
 </svelte:head>
 
 <section class="px-6 pt-24 pb-12 sm:pt-32 sm:pb-16">
-	<div class="mx-auto max-w-[75rem]">
+	<div class="max-w-[75rem] mx-auto">
 		<div class="max-w-2xl">
-			<p class="mb-4 text-sm font-medium tracking-wide text-clay uppercase">Projects</p>
-			<h1 class="text-4xl leading-tight font-bold tracking-tight text-umber sm:text-5xl">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-4">Projects</p>
+			<h1 class="text-4xl sm:text-5xl font-bold text-umber leading-tight tracking-tight">
 				What we're building
 			</h1>
-			<p class="mt-6 max-w-prose text-lg leading-relaxed text-neutral-600">
-				Open-source tools, platforms, and products — everything we're building at Doxa Labs. Some
-				open, some paid. All crafted with care.
+			<p class="mt-6 text-lg text-neutral-600 max-w-prose leading-relaxed">
+				Open-source tools, platforms, and products — everything we're building at Doxa Labs. Some open, some paid. All crafted with care.
 			</p>
 		</div>
 	</div>
@@ -39,74 +38,72 @@
 
 {#each grouped as [category, items], i (category)}
 	<section class="px-6 py-12 sm:py-16" class:pb-24={i === grouped.length - 1}>
-		<div class="mx-auto max-w-[75rem]">
-			<h2 class="mb-6 text-sm font-medium tracking-wide text-neutral-400 uppercase">
+		<div class="max-w-[75rem] mx-auto">
+			<h2 class="text-sm font-medium text-neutral-400 uppercase tracking-wide mb-6">
 				{category}
 			</h2>
-			<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 				{#each items as project (project.title)}
-					{@const colors = colorClasses[project.color]}
+					{@const colors = color_classes[project.color]}
 					{#if project.link}
 						<a
 							href={project.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="group block rounded-lg border border-neutral-200 bg-parchment p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"
+							class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block"
 						>
-							<div class="mb-4 flex items-center justify-between">
+							<div class="flex items-center justify-between mb-4">
 								<div class="flex items-center gap-2">
-									<div class="h-8 w-8 rounded-md {colors.bg} flex items-center justify-center">
+									<div class="w-8 h-8 rounded-md {colors.bg} flex items-center justify-center">
 										<span class="{project.icon} size-4 {colors.text}"></span>
 									</div>
-									<span class="text-xs font-medium tracking-wide text-neutral-400 uppercase"
+									<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide"
 										>{project.type}</span
 									>
 									{#if project.opensource}
-										<span class="rounded bg-sage/15 px-1.5 py-0.5 text-xs font-medium text-sage"
-											>OSS</span
-										>
+										<span class="text-xs px-1.5 py-0.5 rounded bg-sage/15 text-sage font-medium">OSS</span>
 									{/if}
 								</div>
 								<span
-									class="icon-[lucide--arrow-up-right] size-4 text-neutral-300 transition-colors duration-150 group-hover:text-neutral-500"
+									class="icon-[lucide--arrow-up-right] size-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150"
 								></span>
 							</div>
 							<h3
-								class="text-lg font-semibold text-neutral-700 transition-colors duration-150 group-hover:text-umber"
+								class="text-neutral-700 font-semibold text-lg group-hover:text-umber transition-colors duration-150"
 							>
 								{project.title}
 							</h3>
-							<p class="mt-2 text-sm leading-relaxed text-neutral-500">{project.description}</p>
+							<p class="text-neutral-500 mt-2 text-sm leading-relaxed">{project.description}</p>
 							<div class="mt-4 flex flex-wrap gap-2">
 								{#each project.tags as tag (tag)}
-									<span class="rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-500"
+									<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500"
 										>{tag}</span
 									>
 								{/each}
 							</div>
 						</a>
 					{:else}
-						<div class="block rounded-lg border border-neutral-200 bg-parchment p-6 shadow-sm">
-							<div class="mb-4 flex items-center justify-between">
+						<div
+							class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm block"
+						>
+							<div class="flex items-center justify-between mb-4">
 								<div class="flex items-center gap-2">
-									<div class="h-8 w-8 rounded-md {colors.bg} flex items-center justify-center">
+									<div class="w-8 h-8 rounded-md {colors.bg} flex items-center justify-center">
 										<span class="{project.icon} size-4 {colors.text}"></span>
 									</div>
-									<span class="text-xs font-medium tracking-wide text-neutral-400 uppercase"
+									<span class="text-xs font-medium text-neutral-400 uppercase tracking-wide"
 										>{project.type}</span
 									>
 									{#if project.opensource}
-										<span class="rounded bg-sage/15 px-1.5 py-0.5 text-xs font-medium text-sage"
-											>OSS</span
-										>
+										<span class="text-xs px-1.5 py-0.5 rounded bg-sage/15 text-sage font-medium">OSS</span>
 									{/if}
 								</div>
 							</div>
-							<h3 class="text-lg font-semibold text-neutral-700">{project.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-neutral-500">{project.description}</p>
+							<h3 class="text-neutral-700 font-semibold text-lg">{project.title}</h3>
+							<p class="text-neutral-500 mt-2 text-sm leading-relaxed">{project.description}</p>
 							<div class="mt-4 flex flex-wrap gap-2">
 								{#each project.tags as tag (tag)}
-									<span class="rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-500"
+									<span class="text-xs px-2 py-1 rounded-full bg-neutral-100 text-neutral-500"
 										>{tag}</span
 									>
 								{/each}
