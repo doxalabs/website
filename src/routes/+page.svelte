@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { projects } from '$lib/projects';
 	import type { Project } from '$lib/projects';
+	import TopographicLines from '$lib/components/hero-backgrounds/TopographicLines.svelte';
 
 	const featured = projects.filter((p) => p.featured);
 
@@ -20,8 +21,10 @@
 </svelte:head>
 
 <!-- Hero -->
-<section class="px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
-	<div class="max-w-[75rem] mx-auto">
+<section class="px-6 pt-24 pb-20 sm:pt-32 sm:pb-28 relative">
+	<TopographicLines />
+
+	<div class="max-w-[75rem] mx-auto relative">
 		<div class="max-w-2xl">
 			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-4">Builder Collective</p>
 			<h1 class="text-4xl sm:text-5xl font-bold text-umber leading-tight tracking-tight">
