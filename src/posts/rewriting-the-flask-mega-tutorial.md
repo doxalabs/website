@@ -2,7 +2,7 @@
 title: Rewriting the Flask Mega-Tutorial in Go and SvelteKit
 date: '2026-02-10'
 excerpt: "Miguel Grinberg's Flask Mega-Tutorial is one of the best learning resources in web development. We rebuilt it from scratch with a modern stack to see what changed — and what didn't."
-tags: ['Engineering', 'Go', 'SvelteKit']
+tags: ['Engineering']
 ---
 
 Miguel Grinberg's [Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) is a masterclass in teaching web development. It walks you through building a complete blog application — authentication, database migrations, email, deployment — all in Flask. It's been helping developers learn for over a decade.

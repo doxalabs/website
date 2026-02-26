@@ -3,12 +3,20 @@
 	import { resolve } from '$app/paths';
 
 	let active_tag = $state<string | null>(null);
+	let search = $state('');
 
 	const all_tags = [...new Set(posts.flatMap((p) => p.tags))].sort();
 
-	const filtered = $derived(
-		active_tag ? posts.filter((p) => p.tags.includes(active_tag!)) : posts
-	);
+	const filtered = $derived.by(() => {
+		let result = active_tag ? posts.filter((p) => p.tags.includes(active_tag!)) : posts;
+		if (search.trim()) {
+			const q = search.trim().toLowerCase();
+			result = result.filter(
+				(p) => p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q)
+			);
+		}
+		return result;
+	});
 </script>
 
 <svelte:head>
@@ -33,6 +41,12 @@
 <section class="px-6 py-12 pb-24">
 	<div class="max-w-[75rem] mx-auto">
 		<div class="max-w-2xl">
+			<input
+				type="text"
+				bind:value={search}
+				placeholder="Search posts..."
+				class="w-full px-4 py-2.5 mb-6 rounded-lg border border-neutral-200 bg-parchment text-umber placeholder:text-neutral-400 text-sm focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay transition-colors duration-150"
+			/>
 			<div class="flex flex-wrap gap-2 mb-12">
 				<button
 					onclick={() => (active_tag = null)}
@@ -71,6 +85,8 @@
 						</span>
 					</a>
 				</article>
+			{:else}
+				<p class="text-neutral-400 text-sm">No posts found.</p>
 			{/each}
 		</div>
 	</div>

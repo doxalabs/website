@@ -2,7 +2,7 @@
 title: 'Introducing InnKeeper'
 date: '2026-04-10'
 excerpt: 'InnKeeper is a booking and property management platform for Sierra Leone''s hospitality sector. Guests find rooms, operators manage everything.'
-tags: ['Product', 'SvelteKit']
+tags: ['Product']
 ---
 
 We're building InnKeeper — a lodging platform for Sierra Leone.

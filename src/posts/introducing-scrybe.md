@@ -2,7 +2,7 @@
 title: 'Introducing Scrybe'
 date: '2026-04-02'
 excerpt: 'Scrybe is a school management platform built for Sierra Leone. Grades, attendance, payments, and parent communication — digitized and simplified.'
-tags: ['Product', 'SvelteKit']
+tags: ['Product']
 ---
 
 We're building Scrybe — a school management platform designed for Sierra Leone's schools.

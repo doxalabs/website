@@ -2,7 +2,7 @@
 title: 'Introducing Buzzline'
 date: '2026-03-25'
 excerpt: 'Buzzline is a developer-friendly SMS gateway built for Sierra Leone. Reliable delivery, transparent pricing, and an API that makes sense.'
-tags: ['Product', 'Go']
+tags: ['Product']
 ---
 
 We're building Buzzline — an SMS gateway and messaging API designed specifically for Sierra Leone's market.

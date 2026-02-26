@@ -28,9 +28,9 @@
 			</a>
 			<div class="flex items-center gap-8">
 				<div class="hidden sm:flex gap-8 text-sm font-medium">
-					<a href="/projects" class="{page.url.pathname.startsWith('/projects') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Projects</a>
-					<a href="/blog" class="{page.url.pathname.startsWith('/blog') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Blog</a>
-					<a href="/open-source" class="{page.url.pathname.startsWith('/open-source') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Open Source</a>
+					<a href="/projects" aria-current={page.url.pathname.startsWith('/projects') ? 'page' : undefined} class="{page.url.pathname.startsWith('/projects') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Projects</a>
+					<a href="/blog" aria-current={page.url.pathname.startsWith('/blog') ? 'page' : undefined} class="{page.url.pathname.startsWith('/blog') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Blog</a>
+					<a href="/open-source" aria-current={page.url.pathname.startsWith('/open-source') ? 'page' : undefined} class="{page.url.pathname.startsWith('/open-source') ? 'text-clay' : 'text-neutral-600 hover:text-umber'} transition-colors duration-150">Open Source</a>
 				</div>
 				<a
 					href="https://github.com/doxalabs"
@@ -58,6 +58,7 @@
 				<a
 					href="/projects"
 					onclick={() => (menu_open = false)}
+					aria-current={page.url.pathname.startsWith('/projects') ? 'page' : undefined}
 					class="flex items-center gap-2 rounded-full px-4 py-2 bg-parchment border border-neutral-200 shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith('/projects') ? 'text-clay' : 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250, delay: 100 }}
 					out:fly={{ y: 16, duration: 150 }}
@@ -68,6 +69,7 @@
 				<a
 					href="/blog"
 					onclick={() => (menu_open = false)}
+					aria-current={page.url.pathname.startsWith('/blog') ? 'page' : undefined}
 					class="flex items-center gap-2 rounded-full px-4 py-2 bg-parchment border border-neutral-200 shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith('/blog') ? 'text-clay' : 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250, delay: 50 }}
 					out:fly={{ y: 16, duration: 150 }}
@@ -78,6 +80,7 @@
 				<a
 					href="/open-source"
 					onclick={() => (menu_open = false)}
+					aria-current={page.url.pathname.startsWith('/open-source') ? 'page' : undefined}
 					class="flex items-center gap-2 rounded-full px-4 py-2 bg-parchment border border-neutral-200 shadow-md text-sm font-medium transition-colors duration-150 {page.url.pathname.startsWith('/open-source') ? 'text-clay' : 'text-neutral-600 hover:text-umber'}"
 					in:fly={{ y: 16, duration: 250 }}
 					out:fly={{ y: 16, duration: 150 }}

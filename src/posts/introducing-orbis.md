@@ -2,7 +2,7 @@
 title: 'Introducing Orbis'
 date: '2026-04-18'
 excerpt: 'Orbis is a patient records platform for Sierra Leone''s healthcare sector. One patient, one record, accessible across every facility they visit.'
-tags: ['Product', 'Go']
+tags: ['Product']
 ---
 
 We're building Orbis — a unified patient records system for healthcare facilities in Sierra Leone.
