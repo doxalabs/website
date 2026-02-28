@@ -21,7 +21,7 @@
 </section>
 
 <section class="px-6 py-12 pb-24">
-	<div class="max-w-[75rem] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+	<div class="max-w-[75rem] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
 		<a
 			href="/guides/brand"
 			class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block"
@@ -58,22 +58,5 @@
 			</p>
 		</a>
 
-		<a
-			href="/guides/content"
-			class="bg-parchment border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 group block"
-		>
-			<div class="flex items-center justify-between mb-4">
-				<div class="w-9 h-9 rounded-md bg-stone-blue/15 flex items-center justify-center">
-					<span class="icon-[lucide--pen-line] size-5 text-stone-blue"></span>
-				</div>
-				<span class="icon-[lucide--arrow-up-right] size-4 text-neutral-300 group-hover:text-neutral-500 transition-colors duration-150"></span>
-			</div>
-			<h2 class="text-xl font-semibold text-umber group-hover:text-clay transition-colors duration-150">
-				Content Standards
-			</h2>
-			<p class="mt-3 text-neutral-500 leading-relaxed text-sm">
-				Writing rules for blog posts, changelogs, docs, and landing pages so voice and structure stay consistent.
-			</p>
-		</a>
 	</div>
 </section>

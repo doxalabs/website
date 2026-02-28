@@ -1,335 +1,406 @@
 ---
 title: 'Design System Guide'
-excerpt: 'A complete, token-driven design system for Doxa products: foundations, components, accessibility, and governance.'
+excerpt: 'Comprehensive, project-agnostic design system standards for tokens, components, accessibility, implementation, and governance.'
 ---
 
-## Purpose
+## Scope
 
-This guide defines how we design and build interfaces at Doxa so products feel coherent, accessible, and maintainable as the team scales.
+This guide defines the future cross-product design system baseline for products built in this repository.
 
-The design system is not a UI kit alone. It is:
+The system is intentionally core-first and project-tailorable:
 
-- Visual language (color, type, spacing, motion, shape)
-- Interaction standards (states, feedback, navigation patterns)
-- Implementation constraints (tokens, utility usage, component API)
-- Governance (ownership, versioning, testing, rollout)
+- Core tokens and component contracts remain project-agnostic
+- Projects can apply approved skin overrides without fragmenting APIs
+- No brand-locked visual assumptions
+- No one-off visual exceptions without documented approval
 
-## Stack Baseline
+The system covers four layers:
 
-- Framework: SvelteKit
-- Styling: Tailwind CSS v4 (`@theme` variables as source of truth)
-- Icons: Iconify plugin, Lucide for product UI, MDI only for brand/service marks
-- Typography: self-hosted font assets by default
-- Content docs: mdsvex pages in the same repo as code
+1. Foundations: tokenized visual primitives
+2. Patterns: interaction and layout standards
+3. Components: reusable UI contracts
+4. Governance: ownership, versioning, and rollout rules
 
-## Core Principles
+## Principles
 
 1. Token First
-Every visual decision maps to a token before it maps to a class.
+All visual values must come from tokens before they appear in utilities or component code.
 
-2. Utility Constrained
-Tailwind utilities are our implementation detail, not a license for one-off styling.
+2. Semantic Before Primitive
+Components should consume semantic tokens (intent/role) rather than raw primitive tokens.
 
-3. Accessibility By Default
-Keyboard, focus, contrast, and reduced motion are default requirements.
+3. Accessibility as a Release Gate
+Contrast, focus, keyboard support, and reduced motion are mandatory.
 
-4. Composition Over Special Cases
-Use composable primitives and shared patterns before creating bespoke components.
+4. Consistency Over Personal Preference
+Shared patterns win unless a documented product requirement conflicts.
 
-5. Predictable Evolution
-Deprecate intentionally, migrate with guidance, and keep change logs human-readable.
+5. Stable Evolution
+Deprecate gradually with migration notes and explicit versioning.
 
-## Token Architecture
+## Architecture
 
-The token hierarchy follows four levels:
+### Token Hierarchy
 
-1. `primitive` tokens: raw values (`neutral-600`, `space-4`, `radius-md`)
-2. `semantic` tokens: role-based aliases (`text-default`, `surface-muted`, `border-strong`)
-3. `component` tokens: mapped usage (`button-primary-bg`, `input-focus-ring`)
-4. `context` tokens: scoped overrides (dark mode, campaign, partner brand)
+1. Primitive tokens
+Raw values for color, type scale, spacing, radius, shadow, duration.
+Example: `color-neutral-700`, `space-4`, `radius-md`.
 
-Rules:
+2. Semantic tokens
+Role-based aliases that define intent.
+Example: `color-text-default`, `color-surface-muted`, `color-border-strong`.
 
-- New components consume semantic tokens, not primitive values directly.
-- Product branding only overrides context tokens or a defined accent set.
-- No hardcoded hex values in Svelte markup.
-- No custom spacing values unless added to token scale first.
+3. Component tokens
+Specific contract values for a component.
+Example: `button-primary-bg`, `input-focus-ring`.
+
+4. Context tokens
+Scoped overrides for theme, brand skin, campaign mode, or high-contrast mode.
+
+### Naming Rules
+
+- Use clear noun-role format.
+- Avoid visual descriptions in semantic token names (`blue-500` is primitive, not semantic).
+- Include state for interactive tokens (`*-hover`, `*-active`, `*-disabled`).
+- Use the same token names across all products unless versioned.
 
 ## Foundations
 
-### Color
+### Color System (Project-Agnostic)
 
-Color system has three groups:
+Define colors by role, not by brand metaphor.
 
-- Brand: `clay`, `umber`, `sand`, `linen`, `parchment`, `rust`, `sage`, `stone-blue`, `ember`
-- Neutrals: `neutral-50` to `neutral-950` for surface and text hierarchy
-- Status: `success`, `warning`, `error`, `info` (project-level extension)
+#### Primitive Palettes
 
-Usage policy:
+- Neutral scale: `neutral-0` to `neutral-1000`
+- Accent scale: `accent-50` to `accent-900`
+- State scales: `success-*`, `warning-*`, `danger-*`, `info-*`
 
-- Body background uses warm-light surfaces (`parchment`/`neutral-50`)
-- Body text uses `umber` or `neutral-800+`
-- Accent usage should stay under 20% of viewport area per screen
-- Status colors must pass contrast requirements against both light and dark containers
+#### Required Semantic Color Tokens
+
+- Text:
+  - `color-text-default`
+  - `color-text-muted`
+  - `color-text-subtle`
+  - `color-text-inverse`
+  - `color-text-link`
+
+- Surface:
+  - `color-surface-canvas`
+  - `color-surface-default`
+  - `color-surface-muted`
+  - `color-surface-raised`
+  - `color-surface-overlay`
+  - `color-surface-inverse`
+
+- Border:
+  - `color-border-default`
+  - `color-border-muted`
+  - `color-border-strong`
+  - `color-border-focus`
+
+- Interactive:
+  - `color-action-primary-bg`
+  - `color-action-primary-fg`
+  - `color-action-primary-hover`
+  - `color-action-secondary-bg`
+  - `color-action-secondary-fg`
+
+- Feedback:
+  - `color-feedback-success-*`
+  - `color-feedback-warning-*`
+  - `color-feedback-danger-*`
+  - `color-feedback-info-*`
+
+#### Color Usage Rules
+
+- Body text must use semantic text tokens only.
+- One primary accent per view; secondary accents are optional and constrained.
+- State colors communicate meaning, not decoration.
+- Never encode information with color alone.
+- New brand skins may override context tokens, not component contracts.
 
 ### Typography
 
-Scale intent:
+#### Type Roles
 
-- Display: hero and page-level statements only
-- Heading: section grouping and page structure
-- Body: long-form readability target 65 to 80 characters line length
-- Label/meta: controls, badges, hints
+- `display`: hero statements only
+- `heading`: section and page hierarchy
+- `title`: card and module headers
+- `body`: default reading content
+- `label`: form labels and control text
+- `meta`: timestamps, helper text, minor metadata
+- `code`: inline and block code
 
-Standards:
+#### Standards
 
-- Default typeface: DM Sans
-- Font loading: self-hosted with `font-display: swap`
 - Minimum body size: `16px`
-- Tight tracking only for large headings, not for paragraphs
-- Recommended modular scale baseline: Major Third (`1.25`)
-- Recommended prose line length: `65ch`
-- Body weight defaults to `400`; headings/buttons generally use `600`
+- Comfortable line length target: `60ch` to `75ch`
+- Heading styles map to semantic type tokens, not per-page ad hoc classes
+- Use weight and size to define hierarchy before using color
+- Avoid all-caps for long UI labels
 
-### Spacing and Layout
+### Spacing
 
-Spacing scale is 4-based with selected larger steps for sections.
+Use a consistent scale (4-based or 8-based) and enforce it globally.
 
-- Component padding: use tokenized steps only
-- Vertical rhythm: sections should maintain predictable top/bottom cadence
-- Max content width: prose stays around `max-w-prose` to protect readability
-- Grid breakpoints are tokenized and unchanged unless explicitly versioned
+Recommended token set:
 
-### Radius, Border, Shadow
+- `space-0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 24`
 
-- Radius tiers (`sm`, `md`, `lg`, `xl`) map to intent, not preference
-- Borders are preferred over heavy shadows for surface separation
-- Shadows are warm and subtle, reserved for elevation states (dropdown, modal, toast)
+Usage conventions:
+
+- Internal component padding should be size-tiered and predictable.
+- Sibling spacing inside a component must be consistent.
+- Vertical rhythm should be stable within a page template.
+- No arbitrary spacing values in component markup.
+
+### Layout and Breakpoints
+
+Define canonical breakpoints and container widths as tokens.
+
+- Breakpoints: `sm`, `md`, `lg`, `xl`, `2xl`
+- Containers:
+  - `container-narrow` for prose
+  - `container-default` for app screens
+  - `container-wide` for dashboard or dense data views
+
+Rules:
+
+- Keep templates responsive from mobile-first layouts.
+- Avoid breakpoint-specific rewrites when scale adjustments suffice.
+- Preserve minimum tap target sizes on all breakpoints.
+
+### Radius, Border, and Elevation
+
+#### Radius
+
+- `radius-xs`, `sm`, `md`, `lg`, `xl`, `full`
+- Map radius by component role, not preference.
+
+#### Border
+
+- Border token strength should be semantic: muted/default/strong/focus.
+- Prefer border + subtle elevation before heavy shadows.
+
+#### Elevation
+
+- `shadow-0` through `shadow-4` (or equivalent)
+- Elevation should communicate hierarchy and interactivity.
+- Use overlays for modal/backdrop separation, not excessive blur.
 
 ### Motion
 
-- Duration: `150ms` to `200ms` for standard state change
-- Easing: emphasize readability over flair
-- Motion must communicate cause and effect (open/close/focus/feedback)
-- Respect `prefers-reduced-motion` globally
-- Avoid decorative gradients in core UI backgrounds; prefer clean, warm solids
+Define motion tokens for duration and easing:
 
-## Component System
+- Durations: `motion-fast`, `motion-base`, `motion-slow`
+- Easing: `motion-ease-standard`, `motion-ease-emphasized`
 
-Each component spec should include anatomy, variants, sizes, states, accessibility, and anti-patterns.
+Rules:
+
+- Motion should explain state change, not decorate.
+- Reduced-motion mode must preserve all core interactions.
+- Avoid parallax or long decorative transitions in product surfaces.
+
+## Component Contracts
+
+Every reusable component spec must include:
+
+- Purpose and when to use
+- Anatomy (named slots/regions)
+- Variants and sizes
+- States (default, hover, focus-visible, active, disabled, loading, invalid where relevant)
+- Accessibility contract
+- Content guidance
+- Do/Do Not usage examples
 
 ### Buttons
 
-- Variants: `primary`, `secondary`, `ghost`, `destructive`
+- Variants: `primary`, `secondary`, `tertiary`, `ghost`, `destructive`
 - Sizes: `sm`, `md`, `lg`
-- States: default, hover, focus-visible, active, disabled, loading
-- Rules: primary is reserved for one dominant action per region
-- Rules: disabled state changes affordance, not just color
-- Rules: focus-visible ring must be visible at 200% zoom
+- Rules:
+  - One primary action per action group
+  - Disabled state must reduce affordance and block interaction
+  - Loading state keeps width stable and announces progress
 
-### Inputs and Forms
+### Inputs and Form Controls
 
-- Every input needs an associated label
-- Helper text explains format before errors happen
-- Error text is specific, not generic
-- Required indicator must be text+visual, not color-only
-- Validation timing: immediate for format constraints
-- Validation timing: on submit for completeness
-
-### Cards
-
-- Use cards for grouped metadata and actions, not as generic containers for everything
-- Card hierarchy: title
-- Card hierarchy: optional description
-- Card hierarchy: meta row
-- Card hierarchy: action region
-- Avoid mixed card paddings in a single grid
+- Inputs require visible labels (or equivalent accessible name).
+- Helper text should prevent errors before they occur.
+- Error messages must be specific and actionable.
+- Required fields need both semantic and visual indicators.
+- Validation timing must be documented per form flow.
 
 ### Navigation
 
-- Active state must be obvious in desktop and mobile
-- Current location should be visible without hover
-- Keyboard nav should preserve logical order across collapsed menus
+- Active location must be visible without hover.
+- Keyboard and screen-reader navigation order must remain logical.
+- Mobile navigation must preserve focus visibility and trap behavior only when needed.
 
-### Feedback Components
+### Cards and List Items
 
-- Toasts are for non-blocking updates
-- Banners are for persistent, context-wide alerts
-- Modals are for high-friction confirmation or multi-step critical tasks
-- Never stack modal over modal
+- Use cards for grouped meaning, not as generic wrappers.
+- Card action affordances must be clear (whole-card click vs internal actions).
+- Keep paddings and density consistent within a grid.
 
-## Accessibility Standards
+### Feedback Patterns
 
-This is a release gate, not a suggestion.
+- Inline validation for local field errors
+- Banners for persistent context-level information
+- Toasts for non-blocking status updates
+- Modals for high-friction, decision-critical workflows
 
-- Contrast: normal text meets WCAG AA minimum
-- Contrast: UI controls and focus indicators meet visible contrast requirements
-- Interaction: all interactive controls are reachable by keyboard
-- Interaction: no keyboard trap
-- Interaction: focus order follows reading order
-- Semantics: native elements are preferred (`button`, `input`, `nav`, `main`, `table`)
-- Semantics: ARIA is added only when native semantics are insufficient
-- Motion: reduced-motion behavior is provided for animations and transitions
+## Interaction and State Standards
 
-## Theming and Multi-Brand Strategy
+Interactive components must define:
 
-Primary model: one canonical system, lightweight brand overlays.
+- Focus-visible behavior with contrast-compliant ring and offset
+- Pointer and keyboard parity (same outcomes regardless of input method)
+- Disabled semantics (`disabled`/`aria-disabled`) and styles
+- Busy/loading semantics (`aria-busy`/announced status) where relevant
+- Empty, error, and success states for data-dependent UI
 
-- Canonical tokens stay stable across products
-- Brand packages only override accent and a constrained semantic surface layer
-- Runtime theming via CSS variables is preferred over separate compiled builds
-- Campaign or marketing pages that diverge from system must be isolated and documented
+## Accessibility Requirements
 
-## Brand Notes (From Doxa Brand Guide)
+All production UI must meet these minimums:
 
-These are brand-level constraints that the component system should enforce.
+- WCAG AA contrast for text and essential controls
+- Keyboard accessibility with no focus traps (except intentional modal traps)
+- Visible focus indicators on every interactive element
+- Semantic HTML first; ARIA only when native semantics are insufficient
+- Motion alternatives for `prefers-reduced-motion`
+- Clear labels, error associations, and status announcements for forms
 
-### Source of Truth Boundary
+Accessibility failures block release.
 
-- Canonical brand foundations come from `doxa-brand-guide.md` sections `3` through `7`
-- Section `7.1` and everything after it are project implementation details
-- Those implementation sections can be reused as defaults, but this design system remains the governing standard for Doxa project UI decisions
+## Content and Language Rules
 
-### Visual Character
+- Use direct, plain language for controls and error states.
+- Button labels should start with strong verbs (`Save`, `Publish`, `Send`).
+- Avoid vague CTAs (`Click here`, `Continue` without context).
+- Error copy should include cause and next action when possible.
+- Time, date, and number formatting should follow locale-aware formatting policies.
 
-- "Let it breathe": generous whitespace is the default
-- "Warm, not sterile": warm neutrals and softened geometry
-- "Quiet confidence": subtle interactions, no performative motion
-- "Craft in the details": consistent iconography and polished loading/focus states
+## Theming and Brand Skins
 
-### Logo and Marks
+Default model:
 
-- Primary logo is a typographic wordmark (`doxa labs` / `doxalabs`)
-- Use lowercase treatment for the wordmark
-- Keep icons out of the wordmark itself
-- Monogram (`d`/`dl`) is for compact contexts (favicon, avatar, social)
-- Preserve clear space around logo equal to the wordmark "d" height
+- One shared core system
+- Optional skin layers via context token overrides
 
-### Page Structure Defaults
+### Project Tailoring Model
 
-- Standard page max width: `1200px` (`75rem`)
-- Standard prose width: `65ch`
-- Side padding target: `1.5rem` mobile, `3rem` desktop
-- Section spacing target: `6rem` mobile, `8rem` desktop
-- Home page composition baseline:
-- Hero (single clear CTA)
-- Featured work (3-4 projects)
-- Capabilities/value proposition
-- Values/philosophy
-- Footer
+Projects may tailor presentation without breaking the shared core:
 
-### Social and Asset Standards
+- Tailor:
+  - Accent and tonal expression through context tokens
+  - Typographic family choices (within readability and accessibility constraints)
+  - Density presets (compact/default/comfortable) when contracts are preserved
+- Do not tailor:
+  - Component behavior contracts
+  - Core state semantics
+  - Accessibility requirements
 
-- Keep favicon and Open Graph assets current with current wordmark/monogram
-- Preferred OG composition: minimal hierarchy, no busy patterns
-- Social card baseline: dark umber background, linen text, clay accent
+Allowed overrides:
 
-### Non-Negotiables
+- Accent palette
+- Select semantic surface/text/border tokens
+- Optional typography family tokens (if accessibility and density remain valid)
 
-- No pure black (`#000`) or pure white (`#FFF`) in default surfaces
-- No sharp corners (`0px`) in primary product UI
-- No mixing icon families in one interface without a documented reason
-- No one-off visual styling that bypasses token governance
+Not allowed without system-level review:
 
-## Implementation Rules (Tailwind + Svelte)
+- Component API fragmentation by product
+- Unversioned token forks
+- Per-page one-off visual systems in core product surfaces
 
-1. Tokens live in `@theme` in `src/routes/layout.css`.
-2. Utility usage in components must map to tokenized values.
-3. Repeated utility groups should become component classes or primitives.
-4. Class composition should remain readable; avoid utility soup.
-5. New reusable UI should be added as a documented shared component.
+## Implementation Rules (Svelte + Tailwind v4)
 
-Example token mapping pattern:
+1. Tokens are defined centrally in `@theme`.
+2. Components map utilities to semantic token values.
+3. No raw hex values in component markup.
+4. Repeated utility strings should be abstracted into primitives or reusable components.
+5. If a new visual value is needed repeatedly, add/approve a token first.
+
+### Example Token Mapping
 
 ```css
 @theme {
-  --color-text-default: var(--color-umber);
-  --color-surface-default: var(--color-parchment);
-  --color-border-default: var(--color-neutral-200);
+  --color-neutral-0: #ffffff;
+  --color-neutral-1000: #111111;
+
+  --color-text-default: var(--color-neutral-900);
+  --color-surface-default: var(--color-neutral-0);
+  --color-border-default: color-mix(in oklab, var(--color-neutral-900) 16%, transparent);
 }
 ```
 
-Example component policy:
+### Example Component Policy
 
 ```svelte
 <button
   class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium
-  bg-clay text-white hover:bg-clay-dark focus-visible:outline focus-visible:outline-2
-  focus-visible:outline-clay disabled:opacity-50 disabled:pointer-events-none"
+  bg-[var(--color-action-primary-bg)] text-[var(--color-action-primary-fg)]
+  hover:bg-[var(--color-action-primary-hover)]
+  focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-border-focus)]
+  disabled:opacity-50 disabled:pointer-events-none"
 >
   Save
 </button>
 ```
 
-## Governance and Ownership
+## Governance
 
-### Ownership Model
+### Roles
 
-- Design System Owners: approve token, primitive, and pattern changes
-- Product Teams: implement within constraints and propose improvements
-- Reviewers: block one-off deviations without documented exception
+- Design System Maintainers: own token architecture and component contracts
+- Product Teams: adopt, propose improvements, and report friction
+- Reviewers: enforce consistency and block unapproved deviations
 
 ### Change Process
 
-1. Submit proposal with rationale, impacted components, migration scope
+1. Propose change with rationale, impacted scope, and migration plan
 2. Validate accessibility and regression risk
-3. Approve with version tag (`major`, `minor`, `patch`)
-4. Publish migration notes and code examples
+3. Approve and version (`major`, `minor`, `patch`)
+4. Publish migration notes with before/after examples
 
-### Versioning
+### Versioning Policy
 
-- `major`: breaking token/component API changes
-- `minor`: additive variants, new components, non-breaking token additions
-- `patch`: bug fixes and documentation clarifications
+- `major`: breaking token renames, removed variants, API contract changes
+- `minor`: additive tokens, new variants, new components
+- `patch`: bug fixes, documentation clarification, non-breaking polish
 
-## Testing and Quality Gates
+## Quality Gates
 
-Minimum release checks:
+Minimum required checks for any system-affecting change:
 
-- Lint + type checks pass
-- Visual regression snapshots for changed components
-- Accessibility checks for key interaction flows
-- Mobile + desktop validation for layout and interaction
-- Dark-mode or brand-override sanity checks where applicable
+- Type/lint checks pass
+- Visual regression review for changed components/states
+- Accessibility checks for keyboard, focus, and contrast
+- Responsive validation for mobile and desktop
+- Smoke test for supported themes/brand skins
 
-## Documentation Requirements
+## Migration Strategy
 
-Every component page should include:
-
-- Purpose and when to use
-- Anatomy diagram or slot map
-- Variant matrix
-- State behavior
-- Accessibility notes
-- Do/Do not examples
-- Migration notes (if updated)
-
-## Migration Playbook
-
-For teams moving from ad hoc CSS or legacy component styles:
-
-1. Audit top 20 reused patterns and map to canonical components
-2. Map legacy values to tokens (color, space, radius, type)
-3. Migrate page by page with dual-run period for high-risk surfaces
-4. Remove deprecated utilities only after usage reaches zero
+1. Audit current UI for repeated patterns and token drift.
+2. Map legacy values to primitive and semantic tokens.
+3. Refactor shared components first, then page-level usage.
+4. Provide temporary compatibility aliases only when necessary.
+5. Remove deprecated tokens/components after usage reaches zero.
 
 ## Anti-Patterns
 
-- Direct hex values in component markup
-- Multiple primary actions in the same action group
-- Inconsistent spacing between sibling components
-- Decorative motion without functional meaning
-- Component APIs that expose purely visual implementation details
+- Raw color values in component markup
+- Multiple primary actions in one local context
+- Inconsistent spacing/radius across equivalent components
+- Decorative motion disconnected from user intent
+- Component props that expose implementation-only styling internals
+- Token additions without documentation and governance review
 
-## My Practical View
+## Definition of Done
 
-The most common failure mode is treating Tailwind classes as the design system. They are only the transport layer. The actual system is token governance, interaction standards, and disciplined component APIs.
+A design system change is complete only when:
 
-For Doxa specifically:
-
-- Keep the warm, editorial tone as a stable signature
-- Be strict on token usage in product UI
-- Allow controlled experimentation in marketing contexts
-- Invest in migration notes, not just release notes
-
-That balance keeps the interface distinctive while still letting teams ship quickly.
+- Tokens/components are implemented and documented
+- Accessibility and responsive behavior are verified
+- Migration notes are published (if existing usage is affected)
+- Deprecated paths are tracked with a removal timeline
