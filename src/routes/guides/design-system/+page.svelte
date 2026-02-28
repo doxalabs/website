@@ -1,0 +1,40 @@
+<script lang="ts">
+	import GuideSidebar from '../_components/GuideSidebar.svelte';
+	import Content, { metadata } from './design-system.md';
+
+	const title = metadata?.title ?? 'Guide';
+	const excerpt = metadata?.excerpt ?? '';
+</script>
+
+<svelte:head>
+	<title>{title} — Doxa Labs</title>
+	<meta name="description" content={excerpt} />
+</svelte:head>
+
+<section class="px-6 pt-24 pb-12 sm:pt-32 sm:pb-16">
+	<div class="max-w-300 mx-auto">
+		<div class="max-w-3xl">
+			<p class="text-clay font-medium text-sm tracking-wide uppercase mb-4">
+				Guides / Design System
+			</p>
+			<h1 class="text-4xl sm:text-5xl font-bold text-umber leading-tight tracking-tight">
+				{title}
+			</h1>
+			<p class="mt-6 text-lg text-neutral-600 max-w-prose leading-relaxed">{excerpt}</p>
+		</div>
+	</div>
+</section>
+
+<section class="px-6 pb-24">
+	<div class="max-w-300 mx-auto lg:grid lg:grid-cols-[17rem_minmax(0,1fr)] lg:gap-10">
+		<GuideSidebar />
+
+		<div class="mt-8 lg:mt-0 max-w-3xl">
+			<div
+				class="prose prose-neutral max-w-none prose-headings:text-umber prose-headings:tracking-tight prose-p:text-neutral-600 prose-li:text-neutral-600 prose-strong:text-umber prose-a:text-clay hover:prose-a:text-clay-dark prose-code:text-sm prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:text-neutral-700"
+			>
+				<Content />
+			</div>
+		</div>
+	</div>
+</section>
