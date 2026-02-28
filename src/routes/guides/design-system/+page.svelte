@@ -31,7 +31,7 @@
 
 		<div class="mt-8 lg:mt-0 max-w-3xl">
 			<div
-				class="prose prose-neutral max-w-none prose-headings:text-umber prose-headings:tracking-tight prose-p:text-neutral-600 prose-li:text-neutral-600 prose-strong:text-umber prose-a:text-clay hover:prose-a:text-clay-dark prose-code:text-sm prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:text-neutral-700"
+				class="prose prose-neutral max-w-none prose-headings:text-umber prose-headings:tracking-tight prose-p:text-neutral-600 prose-li:text-neutral-600 prose-strong:text-umber prose-a:text-clay hover:prose-a:text-clay-dark prose-pre:bg-neutral-900 prose-pre:text-neutral-100 prose-pre:border prose-pre:border-neutral-800 prose-pre:rounded-lg prose-pre:px-4 prose-pre:py-3 prose-code:text-sm prose-code:before:content-none prose-code:after:content-none "
 			>
 				<Content />
 			</div>

@@ -56,9 +56,8 @@
 				prose-p:text-neutral-600 prose-p:leading-relaxed
 				prose-a:text-clay prose-a:underline prose-a:decoration-clay/30 hover:prose-a:decoration-clay
 				prose-strong:text-umber prose-strong:font-semibold
-				prose-code:text-sm prose-code:bg-neutral-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-sm prose-code:text-neutral-700
+				prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
 				prose-pre:bg-neutral-900 prose-pre:text-neutral-100 prose-pre:rounded-lg prose-pre:text-sm
-				[&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit
 				prose-li:text-neutral-600
 				prose-ul:my-4 prose-li:my-1">
 				{#if data.content}
