@@ -7,42 +7,55 @@ tags: ['Changelog']
 
 This page tracks notable monimejs changes. Each release includes a short summary first, followed by concrete changes and migration notes.
 
-## 2026-02-20
+1. Update the package to latest:
+   ```bash
+   npm install monimejs@latest
+   ```
+
+2. Simple initialization:
+   ```javascript
+   const client = new MonimeClient({
+     spaceId: 'spc-your-space-id',
+     accessToken: 'your-access-token',
+     timeout: 30_000, // optional timeout in milliseconds
+   });
+   ```
+
+
+## 2026-02-27 _(v0.0.3)_
 
 This release changes how the package is authored internally. The SDK source moved from TypeScript to JavaScript with JSDoc typing, while preserving the public developer experience for TypeScript users.
+> **[check the PR here](https://github.com/doxalabs/monimejs/pull/11)**
 
-### Added
+#### Added
 
 - No new public API surface was added in this release
 
-### Changed
+#### Changed
 
 - Internal codebase migrated from TypeScript to JavaScript + JSDoc
-- Build and type generation flow updated to keep published type definitions intact
-- Packaging simplified to reduce maintenance overhead
+- Build and type generation are now maintained in `index.d.ts` file
 
-### Error Handling
+#### Error Handling
 
 - No error-handling behavior changes in this release
 
-### What's Removed
+#### What's Removed
 
-- No public SDK methods or exports were removed in this release
+- removed the changeset packages _(we hardly used them)_
+- removed the `dts-bundle-generator` package
 
 ### Migration Guide
 
-- No migration steps are necessary for most users
-- If your project imports internal package paths, switch to root exports from `monimejs`
+- No migration steps are necessary for users
 
 ## 2026-01-15
 
-This is the initial public release of `monimejs`. It established the class-based client API, typed exports, and structured SDK error classes.
+This is the initial public release of `monimejs`.
 
 ### Added
 
-- `MonimeClient` class-based client initialization with a single options object
-- All public types exported from the root
-- New error class hierarchy for structured exception handling
+- `MonimeClient` class-based client initialization with a single options
 - Core payment modules including payment code creation, payment lookup, and financial transaction operations
 
 ### Changed
@@ -82,6 +95,7 @@ try {
   }
 }
 ```
+> Catch typed SDK errors (`MonimeApiError`, `MonimeValidationError`, `MonimeNetworkError`, `MonimeTimeoutError`) when handling failures.
 
 ### What's Removed
 
@@ -90,24 +104,3 @@ try {
 ### Migration Guide
 
 - Not necessary for this release. This was the first public version.
-
----
-
-## Cross-Version Migration Notes
-
-1. Update the package to latest:
-   ```bash
-   npm install monimejs@latest
-   ```
-
-2. Keep using class-based initialization:
-   ```javascript
-   const client = new MonimeClient({
-     spaceId: 'spc-your-space-id',
-     accessToken: 'your-access-token',
-     timeout: 30000,
-   });
-   ```
-
-3. For 2026-02-20 changes, no public API migration is required unless you used internal source paths.
-4. Catch typed SDK errors (`MonimeApiError`, `MonimeValidationError`, `MonimeNetworkError`, `MonimeTimeoutError`) when handling failures.
