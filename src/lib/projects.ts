@@ -25,7 +25,7 @@ export const projects: Project[] = [
 		type: 'Platform',
 		icon: 'icon-[lucide--message-square]',
 		color: 'ember',
-		featured: true,
+		featured: false,
 		opensource: false
 	},
 	{
@@ -49,6 +49,7 @@ export const projects: Project[] = [
 		type: 'Platform',
 		icon: 'icon-[lucide--building]',
 		color: 'stone-blue',
+		featured: false,
 		opensource: false
 	},
 	{
@@ -60,6 +61,7 @@ export const projects: Project[] = [
 		type: 'Platform',
 		icon: 'icon-[lucide--heart-pulse]',
 		color: 'rust',
+		featured: false,
 		opensource: false
 	},
 	{
@@ -97,7 +99,8 @@ export const projects: Project[] = [
 		type: 'Tool',
 		link: 'https://github.com/doxalabs/tip',
 		icon: 'icon-[lucide--lock]',
-		color: 'rust',
+    color: 'rust',
+    featured: true,
 		opensource: true
 	},
 	{
@@ -110,7 +113,7 @@ export const projects: Project[] = [
 		link: 'https://github.com/doxalabs/microblog',
 		icon: 'icon-[lucide--book-open]',
 		color: 'stone-blue',
-		featured: true,
+		featured: false,
 		opensource: true
 	},
 	{
@@ -123,8 +126,9 @@ export const projects: Project[] = [
 		link: 'https://github.com/doxalabs/campus-gist',
 		icon: 'icon-[lucide--message-circle]',
 		color: 'neutral',
+		featured: false,
 		opensource: true
-	}
+	},
 ];
 
 export function group_by_category(items: Project[]): [string, Project[]][] {
