@@ -13,7 +13,7 @@ This page tracks notable monimejs changes. Each release includes a short summary
    ```
 
 2. Simple initialization:
-   ```javascript
+   ```js
    const client = new MonimeClient({
      spaceId: 'spc-your-space-id',
      accessToken: 'your-access-token',

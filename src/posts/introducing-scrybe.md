@@ -11,7 +11,12 @@ Most schools here still run on paper. Grades in notebooks, attendance in registe
 
 ## The problem
 
-Walk into a school office in Freetown during exam season and you'll see the same scene everywhere: stacks of paper, a calculator, and a teacher spending hours computing averages and writing report cards by hand. Multiply that across hundreds of students, and you have a system held together by effort and memory.
+Walk into a school office in Freetown during exam season and you'll see the same scene everywhere: 
+- stacks of paper, 
+- a calculator, 
+- and a teacher spending hours computing averages and writing report cards by hand. 
+
+Multiply that across hundreds of students, and you have a system held together by effort and memory.
 
 Schools need software, but the options are either too expensive (built for international schools with international pricing) or too generic (designed for a different market with different workflows). What Sierra Leone's schools need is something built for how they actually work.
 
@@ -19,21 +24,21 @@ Schools need software, but the options are either too expensive (built for inter
 
 Scrybe handles the core operations that every school deals with daily:
 
-**Grades and results.** Teachers enter marks per subject and term. The system computes averages, rankings, and generates report cards. Export to PDF or Excel for printing. No more manual calculations.
+- **Grades and results.** Teachers enter marks per subject and term. The system computes averages, rankings, and generates report cards. Export to PDF or Excel for printing. No more manual calculations.
 
-**Attendance.** Mark attendance daily with a few clicks. View patterns over time. Know which students are absent before the parent calls.
+- **Attendance.** Mark attendance daily with a few clicks. View patterns over time. Know which students are absent before the parent calls.
 
-**Payments.** Track fees, record payments, and generate receipts. See who has paid and who hasn't at a glance. Finance staff stop chasing paper trails.
+- **Payments.** Track fees, record payments, and generate receipts. See who has paid and who hasn't at a glance. Finance staff stop chasing paper trails.
 
-**Communication.** Send SMS announcements to parents when results are ready, when fees are due, or when school reopens. Target messages by class, term, or the whole school.
+- **Communication.** Send announcements to parents when results are ready, when fees are due, or when school reopens. Target messages by class, staff, or the whole school.
 
-**Staff management.** Add teachers and staff with role-based access. A teacher sees their classes. An accountant sees finances. The principal sees everything.
+- **Staff management.** Add teachers and staff with role-based access. A teacher sees their classes. An accountant sees finances. The principal sees everything.
 
 ## How it works
 
 Scrybe is a web application. Schools sign up, add their classes and subjects, enrol students, and start working. There's nothing to install — it runs in any browser on any device.
 
-We built it with SvelteKit and SQLite, keeping the stack deliberately simple. The frontend is responsive and works on phones, which matters in a market where many administrators use mobile devices as their primary computer.
+We built it with SvelteKit and SQLite, keeping the stack deliberately simple and fast. The frontend is responsive and works on phones, which matters in a market where many administrators use mobile devices as their primary computer.
 
 The multi-tenant architecture means every school operates in complete isolation. One school can never see another school's data. This was a non-negotiable design decision from day one.
 
@@ -43,9 +48,10 @@ We spent a lot of time thinking about pricing. Software designed for American or
 
 Scrybe uses a freemium model:
 
-- **Free tier** for small schools (up to 30 students). Full features, no time limit.
-- **Standard tier** at 299 SLE/month for up to 500 students. All features, more storage, SMS quotas.
-- **Term and annual billing** with discounts for schools that pay upfront.
+- **Free tier** for small schools (unlimited students, staff and free forever).
+- **Standard tier** at 299 SLE/month for unlimited students, all features, more storage, SMS quotas, etc.
+    - **Term and annual billing** with discounts for schools that pay upfront.
+    - you can also get one month free if you referr a school and they pay.
 
 We designed the pricing to align with how schools operate. Schools bill per term, so we offer per-term pricing. The free tier isn't a trial — it's permanent, so the smallest schools get real value without paying anything.
 
@@ -67,6 +73,6 @@ Building for schools taught us things we didn't expect:
 
 ## What's next
 
-Scrybe is in active development. Grade entry, attendance, and payment tracking are functional. We're working on the student portal (so students can check their own results), PDF report card generation, and expanding the parent-facing features.
+Scrybe is in active development. Grade entry, attendance, and payment tracking are functional. We're actively working on the student portal(so students can check their own results), PDF report card generation, and expanding the student/parent-facing features.
 
 If you run a school in Sierra Leone and want to try Scrybe, or if you're interested in following the project, [reach out to us](https://github.com/doxalabs). We're actively looking for pilot schools to refine the product with.
