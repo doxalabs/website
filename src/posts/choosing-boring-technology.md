@@ -3,6 +3,8 @@ title: 'Choosing boring technology'
 date: '2026-03-12'
 excerpt: 'Every team gets a few innovation tokens. We try to spend ours wisely and keep the rest of the stack as boring as possible.'
 tags: ['Philosophy', 'Engineering']
+authors: ['Team']
+draft: true
 ---
 
 There's a talk by Dan McKinley called "Choose Boring Technology" that changed how we think about stack decisions. The core idea: every team has a limited number of innovation tokens. Spend them on the things that actually differentiate your product. Everything else should be as boring and proven as possible.

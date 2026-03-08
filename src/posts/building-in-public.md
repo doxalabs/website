@@ -3,6 +3,8 @@ title: Building in Public
 date: '2026-01-15'
 excerpt: "We open-source everything from the first commit. Not because it's trendy — because public code stays honest."
 tags: ['Philosophy', 'Open Source']
+authors: ['Team']
+draft: false
 ---
 
 Every Doxa Labs project starts as a public repository. Not after it's polished. Not after the README is perfect. The first commit is public. The ugly scaffolding is public. The commit messages that say "fix the thing" are public.

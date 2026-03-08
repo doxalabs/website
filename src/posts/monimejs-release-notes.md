@@ -3,6 +3,8 @@ title: 'monimejs: Changelog'
 date: '2026-02-27'
 excerpt: 'Release notes for monimejs, including breaking changes and migration steps.'
 tags: ['Changelog']
+authors: ['Team']
+draft: false
 ---
 
 This page tracks notable monimejs changes. Each release includes a short summary first, followed by concrete changes and migration notes.

@@ -3,6 +3,8 @@ title: What We Learned Building monimejs
 date: '2026-01-28'
 excerpt: "Building a payment SDK taught us that the hard part isn't the API calls — it's everything around them. Retries, idempotency, types, and making failure obvious."
 tags: ['Engineering']
+authors: ['Team']
+draft: false
 ---
 
 **monimejs** started as a weekend project. We were integrating with Monime's payment API for clients and personal projects and found ourselves writing the same boilerplate for every endpoint — error handling, type definitions, retry logic. So we extracted it into a library.

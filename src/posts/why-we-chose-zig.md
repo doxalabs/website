@@ -3,6 +3,8 @@ title: Why We Chose Zig for Our CLI Tools
 date: '2026-02-20'
 excerpt: "We needed a language that gave us control without ceremony. Zig turned out to be exactly that — and building flags.zig proved it."
 tags: ['Engineering']
+authors: ['Team']
+draft: true
 ---
 
 When we started building **flags.zig**, we had a simple goal: a command-line argument parser that was type-safe, had zero runtime overhead, and didn't pull in half the internet as dependencies.

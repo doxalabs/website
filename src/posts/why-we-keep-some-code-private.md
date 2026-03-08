@@ -3,6 +3,8 @@ title: 'Why we keep some code private'
 date: '2026-02-25'
 excerpt: 'We believe in open source. We also believe some code should stay closed. Here is how we think about the line between the two.'
 tags: ['Philosophy', 'Open Source']
+authors: ['Team']
+draft: true
 ---
 
 We open-source almost everything we build. Our libraries, our rewrites, even the site you're reading this on. So when someone notices a project on our portfolio that doesn't have a GitHub link, the question is fair: why?

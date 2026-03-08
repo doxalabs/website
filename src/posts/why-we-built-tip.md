@@ -3,6 +3,8 @@ title: Why We Built Our Own Password Manager
 date: '2026-01-05'
 excerpt: "We didn't build tip because existing password managers are bad. We built it because we wanted to understand every line between our passwords and the outside world."
 tags: ['Engineering']
+authors: ['Team']
+draft: true
 ---
 
 This is going to sound reckless: we built our own password manager. In Zig. From scratch.

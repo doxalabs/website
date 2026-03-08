@@ -3,6 +3,8 @@ title: The Case for Zero Dependencies
 date: '2025-12-18'
 excerpt: "Every dependency is a decision someone else made on your behalf. We think you should make fewer of those decisions unconsciously."
 tags: ['Philosophy', 'Engineering']
+authors: ['Team']
+draft: true
 ---
 
 When we shipped [monimejs](https://github.com/doxalabs/monimejs), our Monime payment SDK, it had zero runtime dependencies. No axios. No node-fetch. No lodash. Just our code and the platform APIs.

@@ -3,6 +3,8 @@ title: 'flags.zig: Security Patch for Argument Injection'
 date: '2026-02-24'
 excerpt: 'A minor security fix for flags.zig addressing an edge case where unsanitized input could be passed through to subcommand handlers.'
 tags: ['Changelog']
+authors: ['Team']
+draft: true
 ---
 
 Quick update on flags.zig — we patched an edge case where unsanitized user input in quoted arguments could slip through the parser and reach subcommand handlers unescaped.
