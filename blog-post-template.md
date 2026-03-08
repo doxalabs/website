@@ -20,16 +20,20 @@ Every post must start with this YAML block:
 title: 'Your post title'
 date: 'YYYY-MM-DD'
 excerpt: 'A one-to-two sentence summary shown on the blog listing page.'
-readingTime: 'X min read'
+tags: ['Category']
+authors: ['Author Name']
+draft: false
 ---
 ```
 
-| Field         | Type   | Description                                                  |
-| ------------- | ------ | ------------------------------------------------------------ |
-| `title`       | string | The full post title. Displayed on the post page and listing. |
-| `date`        | string | ISO 8601 date (`2026-03-15`). Controls sort order.           |
-| `excerpt`     | string | 1-2 sentences. Shown on `/blog` and in the `<meta>` tag.    |
-| `readingTime` | string | Estimated read time, e.g. `'5 min read'`.                   |
+| Field         | Type    | Description                                                  |
+| ------------- | ------- | ------------------------------------------------------------ |
+| `title`       | string  | The full post title. Displayed on the post page and listing. |
+| `date`        | string  | ISO 8601 date (`2026-03-15`). Controls sort order.           |
+| `excerpt`     | string  | 1-2 sentences. Shown on `/blog` and in the `<meta>` tag.    |
+| `tags`        | array   | List of tags, e.g. `['Product', 'Engineering']`. Used for filtering. |
+| `authors`     | array   | List of author names. Empty defaults to "Team".             |
+| `draft`       | boolean | Set to `true` to exclude from production.                    |
 
 ## File naming
 
@@ -104,7 +108,7 @@ Use full URLs for external links:
 title: 'What we learned building X'
 date: '2026-04-01'
 excerpt: 'A brief summary of the key lessons from building X with Y technology.'
-readingTime: '5 min read'
+tags: ['Engineering']
 ---
 
 Opening paragraph that sets the context. What problem were we solving?
@@ -133,7 +137,7 @@ One-paragraph summary. Link to the project or related posts.
 
 ## How it works (technical)
 
-- Posts are processed by [mdsvex](https://mdsvex.purl.dev/) (markdown + Svelte preprocessor)
+- Posts are processed by [mdsvex](https://mdsvex.pngwn.io) (markdown + Svelte preprocessor)
 - `src/lib/posts.ts` uses `import.meta.glob` to discover all `.md` files in `src/posts/`
 - Posts are sorted by `date` (newest first) on the `/blog` listing page
 - Each post is rendered as a Svelte component at `/blog/[slug]`

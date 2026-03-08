@@ -3,6 +3,8 @@ interface RawPostMeta {
 	date: string;
 	excerpt: string;
 	tags: string[];
+	authors?: string[];
+	draft?: boolean;
 }
 
 export interface PostMeta extends RawPostMeta {
@@ -31,15 +33,17 @@ function get_posts_meta(): PostMeta[] {
 		{ eager: true, query: '?raw', import: 'default' }
 	);
 
-	const posts: PostMeta[] = Object.entries(modules).map(([path, module]) => {
-		const slug = path.split('/').pop()!.replace('.md', '');
-		const raw = raw_files[path] ?? '';
-		return {
-			slug,
-			...module.metadata,
-			reading_time: calculate_reading_time(raw)
-		};
-	});
+	const posts: PostMeta[] = Object.entries(modules)
+		.map(([path, module]) => {
+			const slug = path.split('/').pop()!.replace('.md', '');
+			const raw = raw_files[path] ?? '';
+			return {
+				slug,
+				...module.metadata,
+				reading_time: calculate_reading_time(raw)
+			};
+		})
+		.filter((post) => !post.draft);
 
 	return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
