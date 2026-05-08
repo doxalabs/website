@@ -48,13 +48,14 @@ spikenard is a builder collective — part open-source workshop, part product st
 
 ### Brand Personality
 
-| Trait | What it means | What it doesn't mean |
-|-------|--------------|---------------------|
-| **Intentional** | Every decision is deliberate | Not slow or overthought |
-| **Warm** | Approachable, human, inviting | Not casual or unserious |
-| **Quiet confidence** | The work speaks for itself | Not loud, flashy, or performative |
-| **Refined** | Polished and considered | Not pretentious or exclusive |
-| **Generous** | Open-source first, knowledge shared | Not naive or unprofessional |
+| Trait | One-liner | What it means | What it doesn't mean |
+|-------|----------|--------------|---------------------|
+| **Reverent craftsmanship** | This is our foundation | Treating software as meaningful work, not disposable output | Not disposable, throwaway code |
+| **Intentional** | How we decide | Every decision is deliberate | Not slow or overthought |
+| **Warm** | How we relate | Approachable, human, inviting | Not casual or unserious |
+| **Quiet confidence** | Our vibe | The work speaks for itself | Not loud, flashy, or performative |
+| **Refined** | Our output | Polished and considered | Not pretentious or exclusive |
+| **Generous** | How we share | Open-source first, knowledge shared | Not naive or unprofessional |
 
 ### Brand Voice
 
