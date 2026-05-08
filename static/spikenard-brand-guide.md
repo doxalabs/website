@@ -24,9 +24,8 @@
 
 ---
 
-## 1.1 GitHub Handle — Naming Decision
+## 1.1 Naming Decision & Handles
 
-> **Status: DECIDED** — `spikenardco` is the chosen GitHub handle.
 > The org and brand should be treated as a single identity: **Spikenard**.
 
 ### Decision: `spikenardco`
@@ -45,6 +44,10 @@ All public references should use `spikenard.dev` as the canonical website URL. N
 ### Who Spikenard Is
 
 spikenard is a builder collective — part open-source workshop, part product studio, part learning community. We build developer tools and platforms, rebuild tutorials in modern frameworks, create products (free and paid), and share what we learn.
+
+### Our Philosophy
+
+We believe good software is carefully designed, patiently refined, and generously shared. Not everything needs to move fast. Not everything should be optimized for attention. Some things are worth building well. That is the spirit behind spikenard.
 
 ### Brand Personality
 
@@ -247,7 +250,7 @@ The logo should be a **wordmark** ("spikenard" styled as the logo). A monogram (
 
 ### Clear Space
 
-Maintain a minimum clear space around the logo equal to the height of the "d" in the wordmark on all sides.
+Maintain a minimum clear space around the logo equal to the height of the "s" in the wordmark on all sides.
 
 ---
 
@@ -255,7 +258,7 @@ Maintain a minimum clear space around the logo equal to the height of the "d" in
 
 ### 7.1 Tech Stack Recommendations
 
-For a brand like spikenard Labs, these align with the values of craft, performance, and modern tooling:
+For a brand like Spikenard, these align with the values of craft, performance, and modern tooling:
 
 | Layer | Recommendation | Why |
 |-------|---------------|-----|
@@ -266,70 +269,9 @@ For a brand like spikenard Labs, these align with the values of craft, performan
 | Animation | **CSS transitions only** | No JS animation libraries needed |
 | Deployment | **Vercel** or **Cloudflare Pages** | Fast, free tier, global CDN |
 
-### 7.2 Tailwind CSS Configuration
+### 7.2 Tailwind CSS v4 Configuration
 
-```js
-// tailwind.config.js (v4 uses CSS-based config, but this shows the token mapping)
-export default {
-  theme: {
-    extend: {
-      colors: {
-        // Brand
-        clay:      '#B08968',
-        umber:     '#3E2C20',
-        sand:      '#DDB892',
-        linen:     '#F5EDE4',
-        parchment: '#FDFAF6',
-        rust:      '#C07040',
-        sage:      '#7D8B75',
-        'stone-blue': '#6B7B8D',
-        ember:     '#B85C38',
-
-        // Warm neutrals (replace default grays)
-        neutral: {
-          50:  '#F9F6F2',
-          100: '#F0ECE6',
-          200: '#E0D8CE',
-          300: '#CCC4B8',
-          400: '#AEA498',
-          500: '#968A7E',
-          600: '#7A6E62',
-          700: '#5E5245',
-          800: '#4A3F35',
-          900: '#2A231C',
-          950: '#1C1612',
-        },
-      },
-
-      fontFamily: {
-        sans:  ['DM Sans', 'system-ui', 'sans-serif'],
-        serif: ['Source Serif 4', 'Georgia', 'serif'],
-        mono:  ['JetBrains Mono', 'Fira Code', 'monospace'],
-      },
-
-      borderRadius: {
-        DEFAULT: '0.5rem',
-        sm: '0.25rem',
-        md: '0.375rem',
-        lg: '0.5rem',
-        xl: '0.75rem',
-      },
-
-      boxShadow: {
-        sm: '0 1px 2px rgba(62, 44, 32, 0.05)',
-        DEFAULT: '0 4px 12px rgba(62, 44, 32, 0.08)',
-        lg: '0 12px 32px rgba(62, 44, 32, 0.12)',
-      },
-
-      maxWidth: {
-        prose: '65ch',
-      },
-    },
-  },
-}
-```
-
-### 7.3 Tailwind CSS v4 (CSS-based config)
+Tailwind CSS v4 uses a CSS-first configuration approach. Add your design tokens via `@theme` in your main CSS file.
 
 ```css
 /* app.css */
@@ -375,10 +317,10 @@ export default {
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
-}
+  }
 ```
 
-### 7.4 CSS Custom Properties (framework-agnostic)
+### 7.3 CSS Custom Properties (framework-agnostic)
 
 ```css
 :root {
@@ -418,36 +360,6 @@ export default {
 
 ---
 
-## 8. Website Structure
-
-### Recommended Pages
-
-```
-/                  — Home (hero + featured projects + value prop)
-/projects          — All projects/tools (grid layout)
-/projects/[slug]   — Individual project page
-/about             — Origin story, team, values
-/blog              — Posts, tutorials, build logs (optional)
-/open-source       — OSS contributions, philosophy
-```
-
-### Home Page Sections
-
-1. **Hero** — Name + tagline + one CTA. No clutter. Let the whitespace set the tone.
-2. **Featured work** — 3–4 highlighted projects. Cards with name, one-line desc, tech tags.
-3. **What we do** — Short copy: tools, platforms, open-source, rebuilt tutorials.
-4. **Values/philosophy** — 3 pillars (e.g., "Crafted with care," "Open by default," "Built to last").
-5. **Footer** — GitHub link, socials, "Built by Spikenard" tagline.
-
-### Page Layout Rules
-
-- Max content width: `1200px` (75rem)
-- Prose/text max width: `65ch`
-- Side padding: `1.5rem` (mobile), `3rem` (desktop)
-- Section spacing: `6rem` (mobile), `8rem` (desktop)
-
----
-
 ## 9. Assets & Social
 
 ### GitHub Organization
@@ -470,7 +382,7 @@ export default {
 ### Favicon
 
 - **Format:** SVG preferred (with PNG fallback at 32x32, 192x192, 512x512)
-- **Design:** Monogram `d` or `dl` — Umber on transparent, or Clay on Umber for dark contexts
+- **Design:** Monogram `s` — Umber on transparent, or Clay on Umber for dark contexts
 
 ---
 

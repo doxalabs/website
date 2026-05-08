@@ -160,6 +160,11 @@
 					Inspired by the artisans of Exodus 31, who were filled with wisdom, understanding, and skill to build something worthy, we believe the best software comes from treating code as craft.
 				</p>
 			</div>
+			<div class="mt-8 pt-8 border-t border-neutral-200">
+				<p class="text-neutral-600 text-sm leading-relaxed">
+					We believe good software is carefully designed, patiently refined, and generously shared. Not everything needs to move fast. Not everything should be optimized for attention. Some things are worth building well. That is the spirit behind spikenard.
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
